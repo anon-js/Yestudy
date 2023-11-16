@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yestudy/main.dart';
 import 'package:yestudy/service/notification.dart';
+
+import '../models/color.dart';
 
 List<String> todoOptions = [
   '할 일은 여기에 표시돼요1',
@@ -99,7 +100,7 @@ class _TodoListState extends State<TodoList> {
           ),
           secondaryBackground: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            color: linkColor,
+            color: mainColor,
             alignment: Alignment.centerRight,
             child: const Icon(
               Icons.edit,
@@ -142,7 +143,7 @@ class _TodoListState extends State<TodoList> {
         ),
         onChanged: null,
         tileColor: backgroundColor,
-        selectedTileColor: linkColor,
+        selectedTileColor: mainColor,
         selected: isCheck || false,
         title: const Text(
           '할 일은 여기에 표시돼요!',

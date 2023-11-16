@@ -7,35 +7,8 @@ import 'package:yestudy/screens/study_record.dart';
 import 'package:yestudy/screens/today_schedule.dart';
 import 'package:yestudy/screens/todo_list.dart';
 
-const Color primaryColor = Color(0xff1D1D1F);
-const Color backgroundColor = Color(0xffF5F5F7);
-const Color borderColor = Color(0xffEEEEEE);
-const Color textColor = Color(0xff222222);
-const Color secondaryTextColor = Color(0xff888888);
-const Color linkColor = Color(0xff3A5FCC);
-const Color placeholderColor = Color(0xff999999);
-
-const TextStyle headingTextStyle = TextStyle(
-  color: primaryColor,
-  fontWeight: FontWeight.w600,
-  fontSize: 24,
-);
-
-const TextStyle bodyTextStyle = TextStyle(
-  color: textColor,
-  fontSize: 16,
-  fontWeight: FontWeight.w500,
-);
-
-const TextStyle smallTextStyle = TextStyle(
-  color: secondaryTextColor,
-  fontSize: 12,
-);
-
-const TextStyle linkTextStyle = TextStyle(
-  fontWeight: FontWeight.w500,
-  fontSize: 14,
-);
+import 'models/color.dart';
+import 'models/style.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -102,8 +75,8 @@ class _HomeScreenState extends State<MyApp>
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: SizedBox(
             width: widthSize,
             height: heightSize,
@@ -293,7 +266,7 @@ class _HomeScreenState extends State<MyApp>
             ),
           },
           style: TextButton.styleFrom(
-            foregroundColor: linkColor,
+            foregroundColor: mainColor,
           ),
           child: const Text(
             '더보기',
@@ -367,8 +340,8 @@ class _HomeScreenState extends State<MyApp>
           TextButton.icon(
             onPressed: null,
             style: TextButton.styleFrom(
-              foregroundColor: linkColor,
-              iconColor: linkColor,
+              foregroundColor: mainColor,
+              iconColor: mainColor,
             ),
             icon: SvgPicture.asset('assets/icons/plus.svg'),
             label: const Text(

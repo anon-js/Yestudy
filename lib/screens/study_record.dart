@@ -1,31 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yestudy/main.dart';
 import 'package:yestudy/service/notification.dart';
 
-const Color thinTextColor = Color(0xff777777);
-const Color lightHeadingTextColor = Color(0xff888888);
-const Color lighterHeadingTextColor = Color(0xff444444);
-const Color btnPrimaryColor = Color(0xffCAFFF2);
-const Color backgroundColor = Color(0xffF5F5F7);
-const Color btnBackgroundColor = Color(0xff0CB98E);
-
-const TextStyle lightSubHeadingTextStyle = TextStyle(
-  color: lightHeadingTextColor,
-  fontWeight: FontWeight.w400,
-  fontSize: 20,
-);
-
-const TextStyle subHeadingTextStyle = TextStyle(
-  color: lighterHeadingTextColor,
-  fontWeight: FontWeight.w600,
-  fontSize: 20,
-);
-
-const TextStyle lightHeadingTextStyle = TextStyle(
-  color: lightHeadingTextColor,
-  fontWeight: FontWeight.w400,
-  fontSize: 24,
-);
+import '../models/color.dart';
+import '../models/style.dart';
 
 class StudyRecord extends StatefulWidget {
   const StudyRecord({super.key});
