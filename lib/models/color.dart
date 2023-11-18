@@ -8,6 +8,7 @@ enum MyColor {
   textSecondary,
   textTertiary,
   textQuaternary,
+  textQuinary,
   primary,
   startBtn,
   startBtnBg
@@ -30,6 +31,8 @@ extension MyColorExtension on MyColor {
         return const Color(0xff444444);
       case MyColor.textQuaternary:
         return const Color(0xff888888);
+      case MyColor.textQuinary:
+        return const Color(0xffCCCCCC);
       case MyColor.primary:
         return const Color(0xff3A5FCC);
       case MyColor.startBtn:

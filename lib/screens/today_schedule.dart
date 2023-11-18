@@ -24,7 +24,7 @@ class _TodayScheduleState extends State<TodaySchedule> {
     return Scaffold(
         appBar: AppBar(
           foregroundColor: Colors.black,
-          backgroundColor: const Color(0xffFFFFFF),
+          backgroundColor: Colors.white,
           elevation: 0,
           title: Text(
             getToday(),

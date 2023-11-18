@@ -47,15 +47,15 @@ class _StudyRecordState extends State<StudyRecord> {
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       foregroundColor: Colors.black,
-      backgroundColor: const Color(0xffFFFFFF),
+      backgroundColor: Colors.white,
       elevation: 0,
       title: const Text(
         '공부하기',
       ),
-      bottom: const TabBar(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+      bottom: TabBar(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         indicatorColor: Colors.black,
-        indicator: BoxDecoration(
+        indicator: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
               color: Colors.black,
@@ -64,8 +64,8 @@ class _StudyRecordState extends State<StudyRecord> {
           ),
         ),
         labelColor: Colors.black,
-        unselectedLabelColor: Color(0xff888888),
-        tabs: [
+        unselectedLabelColor: MyColor.textQuaternary.rawValue,
+        tabs: const [
           Tab(text: '기록'),
           Tab(text: '정리'),
         ],
@@ -99,19 +99,19 @@ class _StudyRecordState extends State<StudyRecord> {
             key: formKey,
             decoration: InputDecoration(
               filled: true,
-              fillColor: const Color(0xffF5F5F7),
+              fillColor: MyColor.bg.rawValue,
               hintText: '공부할 과목을 입력해 주세요.',
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: Color(0xffF5F5F7),
+                borderSide: BorderSide(
+                  color: MyColor.bg.rawValue,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: Color(0xff3A5FCC),
+                borderSide: BorderSide(
+                  color: MyColor.primary.rawValue,
                 ),
               ),
             ),
@@ -195,8 +195,8 @@ class _StudyRecordState extends State<StudyRecord> {
           // 260 / 140
           value: value,
           minHeight: 32,
-          backgroundColor: const Color(0xffF5F5F7),
-          valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff3A5FCC)),
+          backgroundColor: MyColor.bg.rawValue,
+          valueColor: AlwaysStoppedAnimation<Color>(MyColor.primary.rawValue),
           borderRadius: BorderRadius.circular(10),
         ),
         const SizedBox(
@@ -215,8 +215,8 @@ class _StudyRecordState extends State<StudyRecord> {
           style: ElevatedButton.styleFrom(
             foregroundColor: MyColor.textSecondary.rawValue,
             backgroundColor: MyColor.bg.rawValue,
-            disabledForegroundColor: const Color(0xff888888),
-            disabledBackgroundColor: const Color(0xffCCCCCC),
+            disabledForegroundColor: MyColor.textQuaternary.rawValue,
+            disabledBackgroundColor: MyColor.textQuinary.rawValue,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
