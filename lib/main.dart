@@ -62,7 +62,6 @@ class _HomeScreenState extends State<MyApp>
   @override
   Widget build(BuildContext context) {
     final double widthSize = MediaQuery.of(context).size.width;
-    final double heightSize = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SafeArea(
@@ -174,9 +173,9 @@ class _HomeScreenState extends State<MyApp>
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: ColorStyle.bg,
+                backgroundColor: MyColor.bg.rawValue,
                 elevation: 0,
-                side: const BorderSide(color: ColorStyle.border),
+                side: BorderSide(color: MyColor.border.rawValue),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
