@@ -55,15 +55,15 @@ class _TodoListState extends State<TodoList> {
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       foregroundColor: Colors.black,
-      backgroundColor: const Color(0xffFFFFFF),
+      backgroundColor: Colors.white,
       elevation: 0,
       title: const Text(
         '오늘 할 일',
       ),
-      bottom: const TabBar(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+      bottom: TabBar(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         indicatorColor: Colors.black,
-        indicator: BoxDecoration(
+        indicator: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
               color: Colors.black,
@@ -72,8 +72,8 @@ class _TodoListState extends State<TodoList> {
           ),
         ),
         labelColor: Colors.black,
-        unselectedLabelColor: Color(0xff888888),
-        tabs: [
+        unselectedLabelColor: MyColor.textQuaternary.rawValue,
+        tabs: const [
           Tab(text: 'To-do'),
           Tab(text: 'Done'),
         ],
