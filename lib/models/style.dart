@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'color.dart';
 
-const TextStyle headingTextStyle = TextStyle(
-  color: primaryColor,
+TextStyle titleTextStyle = TextStyle(
+  color: MyColor.textPrimary.rawValue,
   fontWeight: FontWeight.w600,
   fontSize: 24,
 );
 
-const TextStyle bodyTextStyle = TextStyle(
-  color: textColor,
+TextStyle bodyTextStyle = TextStyle(
+  color: MyColor.textSecondary.rawValue,
   fontSize: 16,
   fontWeight: FontWeight.w500,
 );
 
-const TextStyle smallTextStyle = TextStyle(
-  color: secondaryTextColor,
+TextStyle smallTextStyle = TextStyle(
+  color: MyColor.textQuaternary.rawValue,
   fontSize: 12,
+  fontWeight: FontWeight.w400,
 );
 
 const TextStyle linkTextStyle = TextStyle(
@@ -23,20 +24,20 @@ const TextStyle linkTextStyle = TextStyle(
   fontSize: 14,
 );
 
-const TextStyle lightSubHeadingTextStyle = TextStyle(
-  color: lightHeadingTextColor,
+TextStyle subTitleTextStyle = TextStyle(
+  color: MyColor.textQuaternary.rawValue,
   fontWeight: FontWeight.w400,
   fontSize: 20,
 );
 
-const TextStyle subHeadingTextStyle = TextStyle(
-  color: lighterHeadingTextColor,
+TextStyle boldSubTitleTextStyle = TextStyle(
+  color: MyColor.textTertiary.rawValue,
   fontWeight: FontWeight.w600,
   fontSize: 20,
 );
 
-const TextStyle lightHeadingTextStyle = TextStyle(
-  color: lightHeadingTextColor,
+TextStyle lightTitleTextStyle = TextStyle(
+  color: MyColor.textQuaternary.rawValue,
   fontWeight: FontWeight.w400,
   fontSize: 24,
 );

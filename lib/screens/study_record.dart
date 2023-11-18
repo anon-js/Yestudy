@@ -81,16 +81,16 @@ class _StudyRecordState extends State<StudyRecord> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '미래를 위한 노력,',
-            style: lightSubHeadingTextStyle,
+            style: subTitleTextStyle,
           ),
           const SizedBox(
             height: 2,
           ),
-          const Text(
+          Text(
             '민호님 화이팅 :)',
-            style: headingTextStyle,
+            style: titleTextStyle,
           ),
           const SizedBox(
             height: 32,
@@ -140,30 +140,30 @@ class _StudyRecordState extends State<StudyRecord> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             children: [
               Text(
                 '총 공부 시간: ',
-                style: lightHeadingTextStyle,
+                style: lightTitleTextStyle,
               ),
               Text(
                 '4시간 20분',
-                style: headingTextStyle,
+                style: titleTextStyle,
               ),
             ],
           ),
           const SizedBox(
             height: 12,
           ),
-          const Row(
+          Row(
             children: [
               Text(
                 '수학',
-                style: subHeadingTextStyle,
+                style: boldSubTitleTextStyle,
               ),
               Text(
                 '을 제일 많이 공부했어요.',
-                style: lightSubHeadingTextStyle,
+                style: subTitleTextStyle,
               ),
             ],
           ),
@@ -213,8 +213,8 @@ class _StudyRecordState extends State<StudyRecord> {
         child: ElevatedButton(
           onPressed: null,
           style: ElevatedButton.styleFrom(
-            foregroundColor: textColor,
-            backgroundColor: backgroundColor,
+            foregroundColor: MyColor.textSecondary.rawValue,
+            backgroundColor: MyColor.bg.rawValue,
             disabledForegroundColor: const Color(0xff888888),
             disabledBackgroundColor: const Color(0xffCCCCCC),
             elevation: 0,
@@ -241,16 +241,16 @@ class _StudyRecordState extends State<StudyRecord> {
                 '국어 공부를 시작했어요.', '당신의 노력을 기록중이에요!');
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: btnBackgroundColor,
+            backgroundColor: MyColor.startBtnBg.rawValue,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          child: const Text(
+          child: Text(
             "시작",
             style: TextStyle(
-              color: btnPrimaryColor,
+              color: MyColor.startBtn.rawValue,
             ),
           ),
         ),

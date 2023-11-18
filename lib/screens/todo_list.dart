@@ -100,7 +100,7 @@ class _TodoListState extends State<TodoList> {
           ),
           secondaryBackground: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            color: mainColor,
+            color: MyColor.primary.rawValue,
             alignment: Alignment.centerRight,
             child: const Icon(
               Icons.edit,
@@ -142,8 +142,8 @@ class _TodoListState extends State<TodoList> {
           borderRadius: BorderRadius.circular(10),
         ),
         onChanged: null,
-        tileColor: backgroundColor,
-        selectedTileColor: mainColor,
+        tileColor: MyColor.bg.rawValue,
+        selectedTileColor: MyColor.primary.rawValue,
         selected: isCheck || false,
         title: const Text(
           '할 일은 여기에 표시돼요!',

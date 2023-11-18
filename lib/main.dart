@@ -47,64 +47,48 @@ class _HomeScreenState extends State<MyApp>
   void setPeeked() {
     isPeeked
         ? setState(() {
-      FocusScope.of(context).unfocus();
-      blurSigma = 0.0;
-      isPeeked = false;
-      topPosition = 440;
-    })
+            FocusScope.of(context).unfocus();
+            blurSigma = 0.0;
+            isPeeked = false;
+            topPosition = 440;
+          })
         : setState(() {
-      blurSigma = 12.0;
-      isPeeked = true;
-      topPosition = (MediaQuery
-          .of(context)
-          .size
-          .height / 2) - 280;
-    });
+            blurSigma = 12.0;
+            isPeeked = true;
+            topPosition = (MediaQuery.of(context).size.height / 2) - 280;
+          });
   }
 
   @override
   Widget build(BuildContext context) {
-    final double widthSize = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final double heightSize = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final double widthSize = MediaQuery.of(context).size.width;
+    final double heightSize = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: SizedBox(
-            width: widthSize,
-            height: heightSize,
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 0,
-                  width: widthSize,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildLogoSection(),
-                      _buildContainer('studyAndTodaySchedule'),
-                      _buildContainer('todo'),
-                      _buildMemoTitleBox(),
-                    ],
-                  ),
-                ),
-                AnimatedPositioned(
-                  top: topPosition,
-                  width: widthSize,
-                  duration: const Duration(milliseconds: 150),
-                  curve: Curves.easeInOut,
-                  child: _buildContainer('memo'),
-                ),
-              ],
+        child: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              width: widthSize,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildLogoSection(),
+                  _buildContainer('studyAndTodaySchedule'),
+                  _buildContainer('todo'),
+                  _buildMemoTitleBox(),
+                ],
+              ),
             ),
-          ),
+            AnimatedPositioned(
+              top: topPosition,
+              width: widthSize,
+              duration: const Duration(milliseconds: 150),
+              curve: Curves.easeInOut,
+              child: _buildContainer('memo'),
+            ),
+          ],
         ),
       ),
     );
@@ -122,50 +106,51 @@ class _HomeScreenState extends State<MyApp>
       margin: const EdgeInsets.fromLTRB(20, 32, 20, 0),
       child: name == 'studyAndTodaySchedule'
           ? Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildWrapper(
-              title: '공부하기',
-              nextPage: const StudyRecord(),
-              icon: 'book',
-              mainText: '10일 남았어요!',
-              subText: '어제보다 12분 더 공부했어요.'),
-          const SizedBox(width: 10),
-          _buildWrapper(
-              title: '오늘 일정',
-              nextPage: const TodaySchedule(),
-              icon: 'calendar',
-              mainText: '일정은 여기에 표시됩니다.',
-              subText: '외 2개'),
-        ],
-      )
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildWrapper(
+                    title: '공부하기',
+                    nextPage: const StudyRecord(),
+                    icon: 'book',
+                    mainText: '10일 남았어요!',
+                    subText: '어제보다 12분 더 공부했어요.'),
+                const SizedBox(width: 10),
+                _buildWrapper(
+                    title: '오늘 일정',
+                    nextPage: const TodaySchedule(),
+                    icon: 'calendar',
+                    mainText: '일정은 여기에 표시됩니다.',
+                    subText: '외 2개'),
+              ],
+            )
           : Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: name == 'todo'
-            ? [
-          _buildTodoTitleBox(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildTodoAddBtn(),
-              const SizedBox(width: 10),
-              _buildTodoAddBtn(),
-            ],
-          ),
-        ]
-            : [
-          _buildMemoInputBackgroundBlur(),
-          _buildMemoInputSection(),
-        ],
-      ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: name == 'todo'
+                  ? [
+                      _buildTodoTitleBox(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildTodoAddBtn(),
+                          const SizedBox(width: 10),
+                          _buildTodoAddBtn(),
+                        ],
+                      ),
+                    ]
+                  : [
+                      _buildMemoInputBackgroundBlur(),
+                      _buildMemoInputSection(),
+                    ],
+            ),
     );
   }
 
-  Widget _buildWrapper({required String title,
-    required Widget nextPage,
-    required String icon,
-    required String mainText,
-    required String subText}) {
+  Widget _buildWrapper(
+      {required String title,
+      required Widget nextPage,
+      required String icon,
+      required String mainText,
+      required String subText}) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +159,7 @@ class _HomeScreenState extends State<MyApp>
             margin: const EdgeInsets.fromLTRB(5, 0, 0, 10),
             child: Text(
               title,
-              style: headingTextStyle,
+              style: titleTextStyle,
             ),
           ),
           SizedBox(
@@ -189,9 +174,9 @@ class _HomeScreenState extends State<MyApp>
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: backgroundColor,
+                backgroundColor: ColorStyle.bg,
                 elevation: 0,
-                side: const BorderSide(color: borderColor),
+                side: const BorderSide(color: ColorStyle.border),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -250,23 +235,22 @@ class _HomeScreenState extends State<MyApp>
       children: [
         Container(
           margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-          child: const Text(
+          child: Text(
             '오늘 할 일',
-            style: headingTextStyle,
+            style: titleTextStyle,
           ),
         ),
         TextButton(
-          onPressed: () =>
-          {
+          onPressed: () => {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const TodoList(),
+                builder: (context) => const TodoList(),
               ),
             ),
           },
           style: TextButton.styleFrom(
-            foregroundColor: mainColor,
+            foregroundColor: MyColor.primary.rawValue,
           ),
           child: const Text(
             '더보기',
@@ -288,9 +272,9 @@ class _HomeScreenState extends State<MyApp>
         child: ElevatedButton.icon(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
+            backgroundColor: MyColor.bg.rawValue,
             elevation: 0,
-            side: const BorderSide(color: borderColor),
+            side: BorderSide(color: MyColor.border.rawValue),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -299,21 +283,21 @@ class _HomeScreenState extends State<MyApp>
             width: 22,
             height: 22,
             padding: const EdgeInsets.all(4),
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
-                color: borderColor),
+            decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
+                color: MyColor.border.rawValue),
             child: SvgPicture.asset(
               'assets/icons/plus.svg',
               width: 14,
               height: 14,
-              colorFilter:
-              const ColorFilter.mode(placeholderColor, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                  MyColor.placeholder.rawValue, BlendMode.srcIn),
             ),
           ),
-          label: const Text(
+          label: Text(
             '할 일 추가하기',
             style: TextStyle(
-              color: placeholderColor,
+              color: MyColor.placeholder.rawValue,
               fontWeight: FontWeight.w500,
               fontSize: 15,
             ),
@@ -329,10 +313,10 @@ class _HomeScreenState extends State<MyApp>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
+          Text(
             '메모',
             style: TextStyle(
-              color: primaryColor,
+              color: MyColor.textPrimary.rawValue,
               fontWeight: FontWeight.w600,
               fontSize: 24,
             ),
@@ -340,8 +324,8 @@ class _HomeScreenState extends State<MyApp>
           TextButton.icon(
             onPressed: null,
             style: TextButton.styleFrom(
-              foregroundColor: mainColor,
-              iconColor: mainColor,
+              foregroundColor: MyColor.primary.rawValue,
+              iconColor: MyColor.primary.rawValue,
             ),
             icon: SvgPicture.asset('assets/icons/plus.svg'),
             label: const Text(
@@ -369,16 +353,13 @@ class _HomeScreenState extends State<MyApp>
 
   Widget _buildMemoInputSection() {
     return AnimatedContainer(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       height: isPeeked ? 270.0 : 100.0,
       margin: const EdgeInsets.only(bottom: 20),
       duration: const Duration(milliseconds: 100),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: borderColor),
+        border: Border.all(color: MyColor.border.rawValue),
         borderRadius: BorderRadius.circular(10.0),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -391,8 +372,8 @@ class _HomeScreenState extends State<MyApp>
           border: InputBorder.none,
           hintText: '메모를 입력해 주세요.',
         ),
-        style: const TextStyle(
-          color: primaryColor,
+        style: TextStyle(
+          color: MyColor.textPrimary.rawValue,
           fontSize: 14,
         ),
       ),
