@@ -83,14 +83,14 @@ class _StudyRecordState extends State<StudyRecord> {
         children: [
           Text(
             '미래를 위한 노력,',
-            style: subTitleTextStyle,
+            style: MyStyle.subTitle.rawValue,
           ),
           const SizedBox(
             height: 2,
           ),
           Text(
             '민호님 화이팅 :)',
-            style: titleTextStyle,
+            style: MyStyle.title.rawValue,
           ),
           const SizedBox(
             height: 32,
@@ -144,11 +144,11 @@ class _StudyRecordState extends State<StudyRecord> {
             children: [
               Text(
                 '총 공부 시간: ',
-                style: lightTitleTextStyle,
+                style: MyStyle.lightTitle.rawValue,
               ),
               Text(
                 '4시간 20분',
-                style: titleTextStyle,
+                style: MyStyle.title.rawValue,
               ),
             ],
           ),
@@ -159,11 +159,11 @@ class _StudyRecordState extends State<StudyRecord> {
             children: [
               Text(
                 '수학',
-                style: boldSubTitleTextStyle,
+                style: MyStyle.boldSubTitle.rawValue,
               ),
               Text(
                 '을 제일 많이 공부했어요.',
-                style: subTitleTextStyle,
+                style: MyStyle.subTitle.rawValue,
               ),
             ],
           ),

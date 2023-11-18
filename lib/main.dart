@@ -158,7 +158,7 @@ class _HomeScreenState extends State<MyApp>
             margin: const EdgeInsets.fromLTRB(5, 0, 0, 10),
             child: Text(
               title,
-              style: titleTextStyle,
+              style: MyStyle.title.rawValue,
             ),
           ),
           SizedBox(
@@ -202,7 +202,7 @@ class _HomeScreenState extends State<MyApp>
                           mainText,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
-                          style: bodyTextStyle,
+                          style: MyStyle.body.rawValue,
                         ),
                       ),
                       const SizedBox(
@@ -214,7 +214,7 @@ class _HomeScreenState extends State<MyApp>
                           subText,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
-                          style: smallTextStyle,
+                          style: MyStyle.small.rawValue,
                         ),
                       ),
                     ],
@@ -236,7 +236,7 @@ class _HomeScreenState extends State<MyApp>
           margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
           child: Text(
             '오늘 할 일',
-            style: titleTextStyle,
+            style: MyStyle.title.rawValue,
           ),
         ),
         TextButton(
@@ -251,9 +251,9 @@ class _HomeScreenState extends State<MyApp>
           style: TextButton.styleFrom(
             foregroundColor: MyColor.primary.rawValue,
           ),
-          child: const Text(
+          child: Text(
             '더보기',
-            style: linkTextStyle,
+            style: MyStyle.link.rawValue,
           ),
         ),
       ],
@@ -327,9 +327,9 @@ class _HomeScreenState extends State<MyApp>
               iconColor: MyColor.primary.rawValue,
             ),
             icon: SvgPicture.asset('assets/icons/plus.svg'),
-            label: const Text(
+            label: Text(
               '메모 추가',
-              style: linkTextStyle,
+              style: MyStyle.link.rawValue,
             ),
           ),
         ],
