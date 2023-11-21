@@ -43,12 +43,14 @@ extension MyStyleExtension on MyStyle {
           color: MyColor.textSecondary.rawValue,
           fontSize: 16,
           fontWeight: FontWeight.w500,
+          height: 1.2,
         );
       case MyStyle.small:
         return TextStyle(
           color: MyColor.textQuaternary.rawValue,
           fontSize: 12,
           fontWeight: FontWeight.w400,
+          height: 1.2,
         );
       case MyStyle.link:
         return const TextStyle(

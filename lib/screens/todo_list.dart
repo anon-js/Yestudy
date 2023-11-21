@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:yestudy/service/notification.dart';
 
 import '../models/color.dart';
+import '../models/string.dart';
+import '../models/style.dart';
 
 List<String> todoOptions = [
   '할 일은 여기에 표시돼요1',
@@ -57,12 +59,14 @@ class _TodoListState extends State<TodoList> {
       foregroundColor: Colors.black,
       backgroundColor: Colors.white,
       elevation: 0,
-      title: const Text(
-        '오늘 할 일',
+      title: Text(
+        MyString.todoTitle.rawValue,
+        style: MyStyle.boldSubTitle.rawValue,
       ),
       bottom: TabBar(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         indicatorColor: Colors.black,
+        indicatorSize: TabBarIndicatorSize.tab,
         indicator: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
@@ -73,9 +77,9 @@ class _TodoListState extends State<TodoList> {
         ),
         labelColor: Colors.black,
         unselectedLabelColor: MyColor.textQuaternary.rawValue,
-        tabs: const [
-          Tab(text: 'To-do'),
-          Tab(text: 'Done'),
+        tabs: [
+          Tab(text: MyString.todoTabTitle.rawValue),
+          Tab(text: MyString.doneTabTitle.rawValue),
         ],
       ),
     );
@@ -145,8 +149,8 @@ class _TodoListState extends State<TodoList> {
         tileColor: MyColor.bg.rawValue,
         selectedTileColor: MyColor.primary.rawValue,
         selected: isCheck || false,
-        title: const Text(
-          '할 일은 여기에 표시돼요!',
+        title: Text(
+          MyString.todoItemText.rawValue,
         ),
       ),
     );

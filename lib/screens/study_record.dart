@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yestudy/models/string.dart';
 import 'package:yestudy/service/notification.dart';
 
 import '../models/color.dart';
@@ -46,15 +47,17 @@ class _StudyRecordState extends State<StudyRecord> {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      foregroundColor: Colors.black,
+      foregroundColor: MyColor.textPrimary.rawValue,
       backgroundColor: Colors.white,
       elevation: 0,
-      title: const Text(
-        '공부하기',
+      title: Text(
+        MyString.studyTitle.rawValue,
+        style: MyStyle.boldSubTitle.rawValue,
       ),
       bottom: TabBar(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         indicatorColor: Colors.black,
+        indicatorSize: TabBarIndicatorSize.tab,
         indicator: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
@@ -65,9 +68,9 @@ class _StudyRecordState extends State<StudyRecord> {
         ),
         labelColor: Colors.black,
         unselectedLabelColor: MyColor.textQuaternary.rawValue,
-        tabs: const [
-          Tab(text: '기록'),
-          Tab(text: '정리'),
+        tabs: [
+          Tab(text: MyString.writeTabTitle.rawValue),
+          Tab(text: MyString.organizeTabTitle.rawValue),
         ],
       ),
     );
@@ -82,14 +85,14 @@ class _StudyRecordState extends State<StudyRecord> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '미래를 위한 노력,',
+            MyString.writeSubTitle.rawValue,
             style: MyStyle.subTitle.rawValue,
           ),
           const SizedBox(
             height: 2,
           ),
           Text(
-            '민호님 화이팅 :)',
+            MyString.writeMainTitle.rawValue,
             style: MyStyle.title.rawValue,
           ),
           const SizedBox(
@@ -100,7 +103,7 @@ class _StudyRecordState extends State<StudyRecord> {
             decoration: InputDecoration(
               filled: true,
               fillColor: MyColor.bg.rawValue,
-              hintText: '공부할 과목을 입력해 주세요.',
+              hintText: MyString.writeInputHint.rawValue,
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -143,11 +146,11 @@ class _StudyRecordState extends State<StudyRecord> {
           Row(
             children: [
               Text(
-                '총 공부 시간: ',
+                MyString.organizeBoldMainTitle.rawValue,
                 style: MyStyle.lightTitle.rawValue,
               ),
               Text(
-                '4시간 20분',
+                MyString.organizeMainTitle.rawValue,
                 style: MyStyle.title.rawValue,
               ),
             ],
@@ -158,11 +161,11 @@ class _StudyRecordState extends State<StudyRecord> {
           Row(
             children: [
               Text(
-                '수학',
+                MyString.organizeBoldSubTitle.rawValue,
                 style: MyStyle.boldSubTitle.rawValue,
               ),
               Text(
-                '을 제일 많이 공부했어요.',
+                MyString.organizeSubTitle.rawValue,
                 style: MyStyle.subTitle.rawValue,
               ),
             ],
@@ -178,7 +181,8 @@ class _StudyRecordState extends State<StudyRecord> {
     );
   }
 
-  Widget _buildProgressBar({required String subject, required String time, required double value}) {
+  Widget _buildProgressBar(
+      {required String subject, required String time, required double value}) {
     return Column(
       children: [
         Row(
@@ -222,8 +226,8 @@ class _StudyRecordState extends State<StudyRecord> {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          child: const Text(
-            "취소",
+          child: Text(
+            MyString.writeCancelBtn.rawValue,
           ),
         ),
       ),
@@ -238,7 +242,9 @@ class _StudyRecordState extends State<StudyRecord> {
           onPressed: () async {
             await FlutterLocalNotification.requestNotificationPermission();
             await FlutterLocalNotification.showNotification(
-                '국어 공부를 시작했어요.', '당신의 노력을 기록중이에요!');
+              MyString.noticeTitle.rawValue,
+              MyString.noticeDesc.rawValue,
+            );
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: MyColor.startBtnBg.rawValue,
@@ -248,7 +254,7 @@ class _StudyRecordState extends State<StudyRecord> {
             ),
           ),
           child: Text(
-            "시작",
+            MyString.writeStartBtn.rawValue,
             style: TextStyle(
               color: MyColor.startBtn.rawValue,
             ),

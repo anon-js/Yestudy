@@ -8,6 +8,7 @@ import 'package:yestudy/screens/today_schedule.dart';
 import 'package:yestudy/screens/todo_list.dart';
 
 import 'models/color.dart';
+import 'models/string.dart';
 import 'models/style.dart';
 
 void main() {
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<MyApp>
     with SingleTickerProviderStateMixin {
   bool isPeeked = false;
   double blurSigma = 0.0;
-  double topPosition = 440.0;
+  double topPosition = 450.0;
 
   void setPeeked() {
     isPeeked
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<MyApp>
             FocusScope.of(context).unfocus();
             blurSigma = 0.0;
             isPeeked = false;
-            topPosition = 440;
+            topPosition = 450;
           })
         : setState(() {
             blurSigma = 12.0;
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<MyApp>
             AnimatedPositioned(
               top: topPosition,
               width: widthSize,
-              duration: const Duration(milliseconds: 150),
+              duration: const Duration(milliseconds: 250),
               curve: Curves.easeInOut,
               child: _buildContainer('memo'),
             ),
@@ -108,18 +109,20 @@ class _HomeScreenState extends State<MyApp>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildWrapper(
-                    title: '공부하기',
-                    nextPage: const StudyRecord(),
-                    icon: 'book',
-                    mainText: '10일 남았어요!',
-                    subText: '어제보다 12분 더 공부했어요.'),
+                  title: MyString.studyTitle.rawValue,
+                  nextPage: const StudyRecord(),
+                  icon: 'book',
+                  mainText: MyString.studyMainText.rawValue,
+                  subText: MyString.studySubText.rawValue,
+                ),
                 const SizedBox(width: 10),
                 _buildWrapper(
-                    title: '오늘 일정',
-                    nextPage: const TodaySchedule(),
-                    icon: 'calendar',
-                    mainText: '일정은 여기에 표시됩니다.',
-                    subText: '외 2개'),
+                  title: MyString.calendarTitle.rawValue,
+                  nextPage: const TodaySchedule(),
+                  icon: 'calendar',
+                  mainText: MyString.calendarMainText.rawValue,
+                  subText: MyString.calendarSubText.rawValue,
+                ),
               ],
             )
           : Column(
@@ -155,7 +158,7 @@ class _HomeScreenState extends State<MyApp>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(5, 0, 0, 10),
+            margin: const EdgeInsets.fromLTRB(4, 0, 0, 10),
             child: Text(
               title,
               style: MyStyle.title.rawValue,
@@ -175,6 +178,8 @@ class _HomeScreenState extends State<MyApp>
               style: ElevatedButton.styleFrom(
                 backgroundColor: MyColor.bg.rawValue,
                 elevation: 0,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 17, horizontal: 12),
                 side: BorderSide(color: MyColor.border.rawValue),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -197,7 +202,7 @@ class _HomeScreenState extends State<MyApp>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 105,
+                        width: 110,
                         child: Text(
                           mainText,
                           overflow: TextOverflow.ellipsis,
@@ -206,7 +211,7 @@ class _HomeScreenState extends State<MyApp>
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 4,
                       ),
                       SizedBox(
                         width: 100,
@@ -233,9 +238,9 @@ class _HomeScreenState extends State<MyApp>
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+          margin: const EdgeInsets.fromLTRB(4, 0, 0, 0),
           child: Text(
-            '오늘 할 일',
+            MyString.todoTitle.rawValue,
             style: MyStyle.title.rawValue,
           ),
         ),
@@ -250,9 +255,10 @@ class _HomeScreenState extends State<MyApp>
           },
           style: TextButton.styleFrom(
             foregroundColor: MyColor.primary.rawValue,
+            padding: const EdgeInsets.symmetric(horizontal: 0),
           ),
           child: Text(
-            '더보기',
+            MyString.todoLink.rawValue,
             style: MyStyle.link.rawValue,
           ),
         ),
@@ -263,7 +269,6 @@ class _HomeScreenState extends State<MyApp>
   Widget _buildTodoAddBtn() {
     return Expanded(
       child: Container(
-        width: 170,
         height: 70,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -294,7 +299,7 @@ class _HomeScreenState extends State<MyApp>
             ),
           ),
           label: Text(
-            '할 일 추가하기',
+            MyString.todoBoxAddLabel.rawValue,
             style: TextStyle(
               color: MyColor.placeholder.rawValue,
               fontWeight: FontWeight.w500,
@@ -308,12 +313,12 @@ class _HomeScreenState extends State<MyApp>
 
   Widget _buildMemoTitleBox() {
     return Container(
-      margin: const EdgeInsets.fromLTRB(25, 32, 25, 0),
+      margin: const EdgeInsets.fromLTRB(24, 32, 24, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            '메모',
+            MyString.memoTitle.rawValue,
             style: TextStyle(
               color: MyColor.textPrimary.rawValue,
               fontWeight: FontWeight.w600,
@@ -321,14 +326,22 @@ class _HomeScreenState extends State<MyApp>
             ),
           ),
           TextButton.icon(
-            onPressed: null,
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TodoList(),
+                ),
+              ),
+            },
             style: TextButton.styleFrom(
               foregroundColor: MyColor.primary.rawValue,
               iconColor: MyColor.primary.rawValue,
+              padding: const EdgeInsets.symmetric(horizontal: 4),
             ),
             icon: SvgPicture.asset('assets/icons/plus.svg'),
             label: Text(
-              '메모 추가',
+              MyString.memoLink.rawValue,
               style: MyStyle.link.rawValue,
             ),
           ),
@@ -366,10 +379,11 @@ class _HomeScreenState extends State<MyApp>
       child: TextFormField(
         keyboardType: TextInputType.multiline,
         onTap: () => {setPeeked()},
-        controller: TextEditingController(text: '메모가 입력되면 이곳에 표시됩니다!'),
-        decoration: const InputDecoration(
+        controller:
+            TextEditingController(text: MyString.memoInputValue.rawValue),
+        decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: '메모를 입력해 주세요.',
+          hintText: MyString.memoInputHint.rawValue,
         ),
         style: TextStyle(
           color: MyColor.textPrimary.rawValue,
