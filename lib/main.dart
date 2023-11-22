@@ -178,9 +178,6 @@ class MyApp extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
                     margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                     child: SvgPicture.asset(
                       'assets/icons/$icon.svg',
