@@ -2,10 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yestudy/screens/study_record.dart';
 import 'package:yestudy/screens/today_schedule.dart';
 import 'package:yestudy/screens/todo_list.dart';
+import 'package:yestudy/utils/memo_editor.dart';
 
 import 'models/color.dart';
 import 'models/string.dart';
@@ -27,41 +29,20 @@ void main() {
         fontFamily: 'Pretendard',
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const MyApp(),
+      home: const ProviderScope(
+        child: MyApp(),
+      )
     ),
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  State<StatefulWidget> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<MyApp>
-    with SingleTickerProviderStateMixin {
-  bool isPeeked = false;
-  double blurSigma = 0.0;
-  double topPosition = 450.0;
-
-  void setPeeked() {
-    isPeeked
-        ? setState(() {
-            FocusScope.of(context).unfocus();
-            blurSigma = 0.0;
-            isPeeked = false;
-            topPosition = 450;
-          })
-        : setState(() {
-            blurSigma = 12.0;
-            isPeeked = true;
-            topPosition = (MediaQuery.of(context).size.height / 2) - 280;
-          });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final memoEdiorRead = ref.read(memoEditorStateNotiferProvider.notifier);
+    final memoEditor = ref.watch(memoEditorStateNotiferProvider);
     final double widthSize = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -75,18 +56,18 @@ class _HomeScreenState extends State<MyApp>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildLogoSection(),
-                  _buildContainer('studyAndTodaySchedule'),
-                  _buildContainer('todo'),
+                  _buildContainer('studyAndTodaySchedule', context, memoEditor, memoEdiorRead),
+                  _buildContainer('todo', context, memoEditor, memoEdiorRead),
                   _buildMemoTitleBox(),
                 ],
               ),
             ),
             AnimatedPositioned(
-              top: topPosition,
+              top: memoEditor.topPosition,
               width: widthSize,
               duration: const Duration(milliseconds: 250),
               curve: Curves.easeInOut,
-              child: _buildContainer('memo'),
+              child: _buildContainer('memo', context, memoEditor, memoEdiorRead),
             ),
           ],
         ),
@@ -101,7 +82,7 @@ class _HomeScreenState extends State<MyApp>
     );
   }
 
-  Widget _buildContainer(String name) {
+  Widget _buildContainer(String name, BuildContext context, MemoEditor memoEditor, MemoEditorNotifier memoEditorRead) {
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 32, 20, 0),
       child: name == 'studyAndTodaySchedule'
@@ -114,6 +95,7 @@ class _HomeScreenState extends State<MyApp>
                   icon: 'book',
                   mainText: MyString.studyMainText.rawValue,
                   subText: MyString.studySubText.rawValue,
+                  context: context,
                 ),
                 const SizedBox(width: 10),
                 _buildWrapper(
@@ -122,6 +104,7 @@ class _HomeScreenState extends State<MyApp>
                   icon: 'calendar',
                   mainText: MyString.calendarMainText.rawValue,
                   subText: MyString.calendarSubText.rawValue,
+                  context: context,
                 ),
               ],
             )
@@ -129,7 +112,7 @@ class _HomeScreenState extends State<MyApp>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: name == 'todo'
                   ? [
-                      _buildTodoTitleBox(),
+                      _buildTodoTitleBox(context),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -140,8 +123,8 @@ class _HomeScreenState extends State<MyApp>
                       ),
                     ]
                   : [
-                      _buildMemoInputBackgroundBlur(),
-                      _buildMemoInputSection(),
+                      _buildMemoInputBackgroundBlur(memoEditor),
+                      _buildMemoInputSection(context, memoEditor, memoEditorRead),
                     ],
             ),
     );
@@ -152,7 +135,8 @@ class _HomeScreenState extends State<MyApp>
       required Widget nextPage,
       required String icon,
       required String mainText,
-      required String subText}) {
+      required String subText,
+      required BuildContext context}) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,6 +174,9 @@ class _HomeScreenState extends State<MyApp>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                    ),
                     margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                     child: SvgPicture.asset(
                       'assets/icons/$icon.svg',
@@ -233,7 +220,7 @@ class _HomeScreenState extends State<MyApp>
     );
   }
 
-  Widget _buildTodoTitleBox() {
+  Widget _buildTodoTitleBox(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -326,14 +313,7 @@ class _HomeScreenState extends State<MyApp>
             ),
           ),
           TextButton.icon(
-            onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const TodoList(),
-                ),
-              ),
-            },
+            onPressed: () => {},
             style: TextButton.styleFrom(
               foregroundColor: MyColor.primary.rawValue,
               iconColor: MyColor.primary.rawValue,
@@ -350,12 +330,12 @@ class _HomeScreenState extends State<MyApp>
     );
   }
 
-  Widget _buildMemoInputBackgroundBlur() {
+  Widget _buildMemoInputBackgroundBlur(MemoEditor memoEditor) {
     return AnimatedOpacity(
-      opacity: blurSigma > 0.0 ? 1.0 : 0.0,
+      opacity: memoEditor.blur > 0.0 ? 1.0 : 0.0,
       duration: const Duration(milliseconds: 150),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
+        filter: ImageFilter.blur(sigmaX: memoEditor.blur, sigmaY: memoEditor.blur),
         child: Container(
           color: Colors.transparent,
         ),
@@ -363,10 +343,10 @@ class _HomeScreenState extends State<MyApp>
     );
   }
 
-  Widget _buildMemoInputSection() {
+  Widget _buildMemoInputSection(BuildContext context, MemoEditor memoEditor, MemoEditorNotifier memoEditorRead) {
     return AnimatedContainer(
       width: MediaQuery.of(context).size.width,
-      height: isPeeked ? 270.0 : 100.0,
+      height: memoEditor.memoHeight,
       margin: const EdgeInsets.only(bottom: 20),
       duration: const Duration(milliseconds: 100),
       decoration: BoxDecoration(
@@ -378,7 +358,7 @@ class _HomeScreenState extends State<MyApp>
       curve: Curves.easeInOut,
       child: TextFormField(
         keyboardType: TextInputType.multiline,
-        onTap: () => {setPeeked()},
+        onTap: () => {memoEditorRead.show((MediaQuery.of(context).size.height / 2) - 280)},
         controller:
             TextEditingController(text: MyString.memoInputValue.rawValue),
         decoration: InputDecoration(
