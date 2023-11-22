@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:yestudy/models/string.dart';
-import 'package:yestudy/service/notification.dart';
 
-import '../models/color.dart';
-import '../models/style.dart';
+import '../services/notification_service.dart';
+import '../res/strings.dart';
+import '../res/colors.dart';
+import '../res/text_styles.dart';
 
 class StudyRecord extends StatefulWidget {
   const StudyRecord({super.key});
@@ -47,12 +47,12 @@ class _StudyRecordState extends State<StudyRecord> {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      foregroundColor: MyColor.textPrimary.rawValue,
+      foregroundColor: AppColor.textPrimary.rawValue,
       backgroundColor: Colors.white,
       elevation: 0,
       title: Text(
-        MyString.studyTitle.rawValue,
-        style: MyStyle.boldSubTitle.rawValue,
+        AppString.studyTitle.rawValue,
+        style: AppStyle.boldSubTitle.rawValue,
       ),
       bottom: TabBar(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -67,10 +67,10 @@ class _StudyRecordState extends State<StudyRecord> {
           ),
         ),
         labelColor: Colors.black,
-        unselectedLabelColor: MyColor.textQuaternary.rawValue,
+        unselectedLabelColor: AppColor.textQuaternary.rawValue,
         tabs: [
-          Tab(text: MyString.writeTabTitle.rawValue),
-          Tab(text: MyString.organizeTabTitle.rawValue),
+          Tab(text: AppString.writeTabTitle.rawValue),
+          Tab(text: AppString.organizeTabTitle.rawValue),
         ],
       ),
     );
@@ -85,15 +85,15 @@ class _StudyRecordState extends State<StudyRecord> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            MyString.writeSubTitle.rawValue,
-            style: MyStyle.subTitle.rawValue,
+            AppString.writeSubTitle.rawValue,
+            style: AppStyle.subTitle.rawValue,
           ),
           const SizedBox(
             height: 2,
           ),
           Text(
-            MyString.writeMainTitle.rawValue,
-            style: MyStyle.title.rawValue,
+            AppString.writeMainTitle.rawValue,
+            style: AppStyle.title.rawValue,
           ),
           const SizedBox(
             height: 32,
@@ -102,19 +102,19 @@ class _StudyRecordState extends State<StudyRecord> {
             key: formKey,
             decoration: InputDecoration(
               filled: true,
-              fillColor: MyColor.bg.rawValue,
-              hintText: MyString.writeInputHint.rawValue,
+              fillColor: AppColor.bg.rawValue,
+              hintText: AppString.writeInputHint.rawValue,
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
-                  color: MyColor.bg.rawValue,
+                  color: AppColor.bg.rawValue,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
-                  color: MyColor.primary.rawValue,
+                  color: AppColor.primary.rawValue,
                 ),
               ),
             ),
@@ -146,12 +146,12 @@ class _StudyRecordState extends State<StudyRecord> {
           Row(
             children: [
               Text(
-                MyString.organizeBoldMainTitle.rawValue,
-                style: MyStyle.lightTitle.rawValue,
+                AppString.organizeBoldMainTitle.rawValue,
+                style: AppStyle.lightTitle.rawValue,
               ),
               Text(
-                MyString.organizeMainTitle.rawValue,
-                style: MyStyle.title.rawValue,
+                AppString.organizeMainTitle.rawValue,
+                style: AppStyle.title.rawValue,
               ),
             ],
           ),
@@ -161,12 +161,12 @@ class _StudyRecordState extends State<StudyRecord> {
           Row(
             children: [
               Text(
-                MyString.organizeBoldSubTitle.rawValue,
-                style: MyStyle.boldSubTitle.rawValue,
+                AppString.organizeBoldSubTitle.rawValue,
+                style: AppStyle.boldSubTitle.rawValue,
               ),
               Text(
-                MyString.organizeSubTitle.rawValue,
-                style: MyStyle.subTitle.rawValue,
+                AppString.organizeSubTitle.rawValue,
+                style: AppStyle.subTitle.rawValue,
               ),
             ],
           ),
@@ -199,8 +199,8 @@ class _StudyRecordState extends State<StudyRecord> {
           // 260 / 140
           value: value,
           minHeight: 32,
-          backgroundColor: MyColor.bg.rawValue,
-          valueColor: AlwaysStoppedAnimation<Color>(MyColor.primary.rawValue),
+          backgroundColor: AppColor.bg.rawValue,
+          valueColor: AlwaysStoppedAnimation<Color>(AppColor.primary.rawValue),
           borderRadius: BorderRadius.circular(10),
         ),
         const SizedBox(
@@ -217,17 +217,17 @@ class _StudyRecordState extends State<StudyRecord> {
         child: ElevatedButton(
           onPressed: null,
           style: ElevatedButton.styleFrom(
-            foregroundColor: MyColor.textSecondary.rawValue,
-            backgroundColor: MyColor.bg.rawValue,
-            disabledForegroundColor: MyColor.textQuaternary.rawValue,
-            disabledBackgroundColor: MyColor.textQuinary.rawValue,
+            foregroundColor: AppColor.textSecondary.rawValue,
+            backgroundColor: AppColor.bg.rawValue,
+            disabledForegroundColor: AppColor.textQuaternary.rawValue,
+            disabledBackgroundColor: AppColor.textQuinary.rawValue,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
           ),
           child: Text(
-            MyString.writeCancelBtn.rawValue,
+            AppString.writeCancelBtn.rawValue,
           ),
         ),
       ),
@@ -242,21 +242,21 @@ class _StudyRecordState extends State<StudyRecord> {
           onPressed: () async {
             await FlutterLocalNotification.requestNotificationPermission();
             await FlutterLocalNotification.showNotification(
-              MyString.noticeTitle.rawValue,
-              MyString.noticeDesc.rawValue,
+              AppString.noticeTitle.rawValue,
+              AppString.noticeDesc.rawValue,
             );
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: MyColor.startBtnBg.rawValue,
+            backgroundColor: AppColor.startBtnBg.rawValue,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
           ),
           child: Text(
-            MyString.writeStartBtn.rawValue,
+            AppString.writeStartBtn.rawValue,
             style: TextStyle(
-              color: MyColor.startBtn.rawValue,
+              color: AppColor.startBtn.rawValue,
             ),
           ),
         ),

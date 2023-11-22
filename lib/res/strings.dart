@@ -1,4 +1,4 @@
-enum MyString {
+enum AppString {
   // StudyRecord
   studyTitle,
   studyMainText,
@@ -37,75 +37,75 @@ enum MyString {
   memoInputValue,
 }
 
-extension MyStringExtension on MyString {
+extension AppStringExtension on AppString {
   String get rawValue {
     switch (this) {
       // StudyRecord
-      case MyString.studyTitle:
+      case AppString.studyTitle:
         return '공부하기';
-      case MyString.studyMainText:
+      case AppString.studyMainText:
         return '10일 남았어요!';
-      case MyString.studySubText:
+      case AppString.studySubText:
         return '3시간 30분 (-50분)';
-      case MyString.writeTabTitle:
+      case AppString.writeTabTitle:
         return '기록';
-      case MyString.organizeTabTitle:
+      case AppString.organizeTabTitle:
         return '정리';
-      case MyString.writeMainTitle:
+      case AppString.writeMainTitle:
         return '민호님 화이팅 :)';
-      case MyString.writeSubTitle:
+      case AppString.writeSubTitle:
         return '미래를 위한 노력,';
-      case MyString.writeInputHint:
+      case AppString.writeInputHint:
         return '공부할 과목을 입력해 주세요.';
-      case MyString.writeInputValue:
+      case AppString.writeInputValue:
         return '';
-      case MyString.writeStartBtn:
+      case AppString.writeStartBtn:
         return '시작';
-      case MyString.writePauseBtn:
+      case AppString.writePauseBtn:
         return '중지';
-      case MyString.writeCancelBtn:
+      case AppString.writeCancelBtn:
         return '취소';
-      case MyString.organizeBoldMainTitle:
+      case AppString.organizeBoldMainTitle:
         return '총 공부 시간:';
-      case MyString.organizeMainTitle:
+      case AppString.organizeMainTitle:
         return '4시간 20분';
-      case MyString.organizeBoldSubTitle:
+      case AppString.organizeBoldSubTitle:
         return '수학';
-      case MyString.organizeSubTitle:
+      case AppString.organizeSubTitle:
         return '을 제일 많이 공부했어요.';
-      case MyString.noticeTitle:
+      case AppString.noticeTitle:
         return '국어 공부를 시작했어요.';
-      case MyString.noticeDesc:
+      case AppString.noticeDesc:
         return '당신의 노력을 기록중이에요!';
       // Calendar
-      case MyString.calendarTitle:
+      case AppString.calendarTitle:
         return '오늘 일정';
-      case MyString.calendarMainText:
+      case AppString.calendarMainText:
         return '코딩하기';
-      case MyString.calendarSubText:
+      case AppString.calendarSubText:
         return '외 2개';
       // Todo
-      case MyString.todoTitle:
+      case AppString.todoTitle:
         return '오늘 할 일';
-      case MyString.todoLink:
+      case AppString.todoLink:
         return '더보기';
-      case MyString.todoBoxAddLabel:
+      case AppString.todoBoxAddLabel:
         return '할 일 추가하기';
-      case MyString.todoTabTitle:
+      case AppString.todoTabTitle:
         return 'To-do';
-      case MyString.doneTabTitle:
+      case AppString.doneTabTitle:
         return 'Done';
-      case MyString.todoItemText:
+      case AppString.todoItemText:
         return '할 일은 여기에 표시돼요!';
-      case MyString.doneItemText:
+      case AppString.doneItemText:
         return '할 일은 여기에 표시돼요!';
-      case MyString.memoTitle:
+      case AppString.memoTitle:
         return '메모';
-      case MyString.memoLink:
+      case AppString.memoLink:
         return '메모 추가';
-      case MyString.memoInputHint:
+      case AppString.memoInputHint:
         return '메모를 입력해 주세요.';
-      case MyString.memoInputValue:
+      case AppString.memoInputValue:
         return '메모가 입력되면 이곳에 표시됩니다!';
     }
   }

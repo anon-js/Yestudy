@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../models/style.dart';
+import '../res/text_styles.dart';
 
 class TodaySchedule extends StatefulWidget {
   const TodaySchedule({super.key});
@@ -30,7 +30,7 @@ class _TodayScheduleState extends State<TodaySchedule> {
           elevation: 0,
           title: Text(
             getToday(),
-            style: MyStyle.boldSubTitle.rawValue,
+            style: AppStyle.boldSubTitle.rawValue,
           ),
         ),
         body: const Column(

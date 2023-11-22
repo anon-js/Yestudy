@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum MyColor {
+enum AppColor {
   bg,
   border,
   placeholder,
@@ -14,31 +14,31 @@ enum MyColor {
   startBtnBg
 }
 
-extension MyColorExtension on MyColor {
+extension AppColorExtension on AppColor {
   Color get rawValue {
     switch (this) {
-      case MyColor.bg:
+      case AppColor.bg:
         return const Color(0xffF5F5F7);
-      case MyColor.border:
+      case AppColor.border:
         return const Color(0xffEEEEEE);
-      case MyColor.placeholder:
+      case AppColor.placeholder:
         return const Color(0xff999999);
-      case MyColor.textPrimary:
+      case AppColor.textPrimary:
         return const Color(0xff1D1D1F);
-      case MyColor.textSecondary:
+      case AppColor.textSecondary:
         return const Color(0xff222222);
-      case MyColor.textTertiary:
+      case AppColor.textTertiary:
         return const Color(0xff444444);
-      case MyColor.textQuaternary:
+      case AppColor.textQuaternary:
         return const Color(0xff888888);
-      case MyColor.textQuinary:
+      case AppColor.textQuinary:
         return const Color(0xffCCCCCC);
-      case MyColor.primary:
+      case AppColor.primary:
         return const Color(0xff3A5FCC);
-      case MyColor.startBtn:
+      case AppColor.startBtn:
         return const Color(0xffCAFFF2);
-      case MyColor.startBtnBg:
-      return const Color(0xff0CB98E);
+      case AppColor.startBtnBg:
+        return const Color(0xff0CB98E);
     }
   }
 }

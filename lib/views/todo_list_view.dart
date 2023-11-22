@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yestudy/service/notification.dart';
 
-import '../models/color.dart';
-import '../models/string.dart';
-import '../models/style.dart';
+import '../res/colors.dart';
+import '../res/strings.dart';
+import '../res/text_styles.dart';
 
 List<String> todoOptions = [
   '할 일은 여기에 표시돼요1',
@@ -33,12 +32,6 @@ class TodoList extends StatefulWidget {
 
 class _TodoListState extends State<TodoList> {
   @override
-  void initState() {
-    FlutterLocalNotification.init();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
@@ -60,8 +53,8 @@ class _TodoListState extends State<TodoList> {
       backgroundColor: Colors.white,
       elevation: 0,
       title: Text(
-        MyString.todoTitle.rawValue,
-        style: MyStyle.boldSubTitle.rawValue,
+        AppString.todoTitle.rawValue,
+        style: AppStyle.boldSubTitle.rawValue,
       ),
       bottom: TabBar(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -76,10 +69,10 @@ class _TodoListState extends State<TodoList> {
           ),
         ),
         labelColor: Colors.black,
-        unselectedLabelColor: MyColor.textQuaternary.rawValue,
+        unselectedLabelColor: AppColor.textQuaternary.rawValue,
         tabs: [
-          Tab(text: MyString.todoTabTitle.rawValue),
-          Tab(text: MyString.doneTabTitle.rawValue),
+          Tab(text: AppString.todoTabTitle.rawValue),
+          Tab(text: AppString.doneTabTitle.rawValue),
         ],
       ),
     );
@@ -104,7 +97,7 @@ class _TodoListState extends State<TodoList> {
           ),
           secondaryBackground: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            color: MyColor.primary.rawValue,
+            color: AppColor.primary.rawValue,
             alignment: Alignment.centerRight,
             child: const Icon(
               Icons.edit,
@@ -146,11 +139,11 @@ class _TodoListState extends State<TodoList> {
           borderRadius: BorderRadius.circular(10),
         ),
         onChanged: null,
-        tileColor: MyColor.bg.rawValue,
-        selectedTileColor: MyColor.primary.rawValue,
+        tileColor: AppColor.bg.rawValue,
+        selectedTileColor: AppColor.primary.rawValue,
         selected: isCheck || false,
         title: Text(
-          MyString.todoItemText.rawValue,
+          AppString.todoItemText.rawValue,
         ),
       ),
     );
