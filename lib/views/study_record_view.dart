@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../services/notification_service.dart';
@@ -34,6 +35,7 @@ class _StudyRecordState extends State<StudyRecord> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: _buildAppBar(),
         body: TabBarView(
           children: [
@@ -47,7 +49,7 @@ class _StudyRecordState extends State<StudyRecord> {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      foregroundColor: AppColor.textPrimary.rawValue,
+      foregroundColor: AppColor.gray9.rawValue,
       backgroundColor: Colors.white,
       elevation: 0,
       title: Text(
@@ -55,19 +57,20 @@ class _StudyRecordState extends State<StudyRecord> {
         style: AppStyle.boldSubTitle.rawValue,
       ),
       bottom: TabBar(
+        overlayColor: const MaterialStatePropertyAll(Colors.transparent),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        indicatorColor: Colors.black,
+        dividerColor: AppColor.gray4.rawValue,
         indicatorSize: TabBarIndicatorSize.tab,
-        indicator: const BoxDecoration(
+        indicator: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Colors.black,
-              width: 4.0,
+              width: 4,
+              color: AppColor.gray9.rawValue,
             ),
           ),
         ),
-        labelColor: Colors.black,
-        unselectedLabelColor: AppColor.textQuaternary.rawValue,
+        labelColor: AppColor.gray9.rawValue,
+        unselectedLabelColor: AppColor.gray6.rawValue,
         tabs: [
           Tab(text: AppString.writeTabTitle.rawValue),
           Tab(text: AppString.organizeTabTitle.rawValue),
@@ -102,13 +105,13 @@ class _StudyRecordState extends State<StudyRecord> {
             key: formKey,
             decoration: InputDecoration(
               filled: true,
-              fillColor: AppColor.bg.rawValue,
+              fillColor: AppColor.gray2.rawValue,
               hintText: AppString.writeInputHint.rawValue,
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
-                  color: AppColor.bg.rawValue,
+                  color: AppColor.gray2.rawValue,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
@@ -199,7 +202,7 @@ class _StudyRecordState extends State<StudyRecord> {
           // 260 / 140
           value: value,
           minHeight: 32,
-          backgroundColor: AppColor.bg.rawValue,
+          backgroundColor: AppColor.gray2.rawValue,
           valueColor: AlwaysStoppedAnimation<Color>(AppColor.primary.rawValue),
           borderRadius: BorderRadius.circular(10),
         ),
@@ -217,10 +220,10 @@ class _StudyRecordState extends State<StudyRecord> {
         child: ElevatedButton(
           onPressed: null,
           style: ElevatedButton.styleFrom(
-            foregroundColor: AppColor.textSecondary.rawValue,
-            backgroundColor: AppColor.bg.rawValue,
-            disabledForegroundColor: AppColor.textQuaternary.rawValue,
-            disabledBackgroundColor: AppColor.textQuinary.rawValue,
+            foregroundColor: AppColor.gray9.rawValue,
+            backgroundColor: AppColor.gray2.rawValue,
+            disabledForegroundColor: AppColor.gray6.rawValue,
+            disabledBackgroundColor: AppColor.gray5.rawValue,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),

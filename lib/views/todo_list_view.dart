@@ -36,6 +36,7 @@ class _TodoListState extends State<TodoList> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: _buildAppBar(),
         body: TabBarView(
           children: [
@@ -57,19 +58,20 @@ class _TodoListState extends State<TodoList> {
         style: AppStyle.boldSubTitle.rawValue,
       ),
       bottom: TabBar(
+        overlayColor: const MaterialStatePropertyAll(Colors.transparent),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        indicatorColor: Colors.black,
+        dividerColor: AppColor.gray4.rawValue,
         indicatorSize: TabBarIndicatorSize.tab,
-        indicator: const BoxDecoration(
+        indicator: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Colors.black,
-              width: 4.0,
+              width: 4,
+              color: AppColor.gray9.rawValue,
             ),
           ),
         ),
-        labelColor: Colors.black,
-        unselectedLabelColor: AppColor.textQuaternary.rawValue,
+        labelColor: AppColor.gray9.rawValue,
+        unselectedLabelColor: AppColor.gray6.rawValue,
         tabs: [
           Tab(text: AppString.todoTabTitle.rawValue),
           Tab(text: AppString.doneTabTitle.rawValue),
@@ -139,7 +141,7 @@ class _TodoListState extends State<TodoList> {
           borderRadius: BorderRadius.circular(10),
         ),
         onChanged: null,
-        tileColor: AppColor.bg.rawValue,
+        tileColor: AppColor.gray2.rawValue,
         selectedTileColor: AppColor.primary.rawValue,
         selected: isCheck || false,
         title: Text(

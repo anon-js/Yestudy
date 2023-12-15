@@ -24,6 +24,7 @@ class _TodayScheduleState extends State<TodaySchedule> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,

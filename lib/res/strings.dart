@@ -1,7 +1,6 @@
 enum AppString {
   // StudyRecord
   studyTitle,
-  studyMainText,
   studySubText,
   writeTabTitle,
   organizeTabTitle,
@@ -43,10 +42,8 @@ extension AppStringExtension on AppString {
       // StudyRecord
       case AppString.studyTitle:
         return '공부하기';
-      case AppString.studyMainText:
-        return '10일 남았어요!';
       case AppString.studySubText:
-        return '3시간 30분 (-50분)';
+        return '정말 수고 많으셨어요!';
       case AppString.writeTabTitle:
         return '기록';
       case AppString.organizeTabTitle:
@@ -79,14 +76,14 @@ extension AppStringExtension on AppString {
         return '당신의 노력을 기록중이에요!';
       // Calendar
       case AppString.calendarTitle:
-        return '오늘 일정';
+        return '일정';
       case AppString.calendarMainText:
-        return '코딩하기';
+        return '예스터디 완성 시키기';
       case AppString.calendarSubText:
         return '외 2개';
       // Todo
       case AppString.todoTitle:
-        return '오늘 할 일';
+        return '할 일';
       case AppString.todoLink:
         return '더보기';
       case AppString.todoBoxAddLabel:

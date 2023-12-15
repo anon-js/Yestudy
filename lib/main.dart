@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:yestudy/viewmodels/bottom_nav_notifier.dart';
+import 'package:yestudy/viewmodels/memo_change_notifier.dart';
+import 'package:yestudy/viewmodels/memo_editor_notifier.dart';
 import 'package:yestudy/views/study_record_view.dart';
 import 'package:yestudy/views/today_schedule_view.dart';
 import 'package:yestudy/views/todo_list_view.dart';
+import 'package:yestudy/wigets/calendar_container.dart';
+import 'package:yestudy/wigets/memo_container.dart';
+import 'package:yestudy/wigets/study_container.dart';
 
 import 'res/colors.dart';
-import 'res/strings.dart';
 import 'res/text_styles.dart';
 
 void main() {
@@ -22,15 +27,9 @@ void main() {
     ),
   );
   runApp(
-    MaterialApp(
-        title: 'Yestudy',
-        theme: ThemeData(
-          fontFamily: 'Pretendard',
-          scaffoldBackgroundColor: Colors.white,
-        ),
-        home: const ProviderScope(
-          child: MyApp(),
-        )),
+    const ProviderScope(
+      child: MyApp(),
+    ),
   );
 }
 
@@ -39,351 +38,172 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final memoEdiorRead = ref.read(memoEditorStateNotiferProvider.notifier);
-    // final memoEditor = ref.watch(memoEditorStateNotiferProvider);
+    final memoEditorRead = ref.read(memoEditorStateNotiferProvider.notifier);
+    final memoEditor = ref.watch(memoEditorStateNotiferProvider);
+    final memoChangeRead = ref.read(memoChangeStateNotiferProvider.notifier);
+    final memoChange = ref.watch(memoChangeStateNotiferProvider);
+    final bottomNavRead = ref.read(bottomNavStateNotiferProvider.notifier);
+    final bottomNav = ref.watch(bottomNavStateNotiferProvider);
     final double widthSize = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned(
-              top: 0,
-              width: widthSize,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 15, horizontal: 20),
-                    child: SvgPicture.asset('assets/icons/logo.svg'),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 32, 20, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.fromLTRB(4, 0, 0, 10),
-                                child: Text(
-                                  AppString.studyTitle.rawValue,
-                                  style: AppStyle.title.rawValue,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 90,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const StudyRecord(),
-                                      ),
-                                    );
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.bg.rawValue,
-                                    elevation: 0,
-                                    padding:
-                                    const EdgeInsets.symmetric(vertical: 17, horizontal: 12),
-                                    side: BorderSide(color: AppColor.border.rawValue),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                        child: SvgPicture.asset(
-                                          'assets/icons/book.svg',
-                                          width: 24,
-                                          height: 24,
-                                        ),
-                                      ),
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 110,
-                                            child: Text(
-                                              AppString.studyMainText.rawValue,
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 2,
-                                              style: AppStyle.body.rawValue,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
-                                          SizedBox(
-                                            width: 100,
-                                            child: Text(
-                                              AppString.studySubText.rawValue,
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 2,
-                                              style: AppStyle.small.rawValue,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+    return MaterialApp(
+      title: 'Yestudy',
+      theme: ThemeData(
+        fontFamily: 'Pretendard',
+        scaffoldBackgroundColor: Colors.black,
+      ),
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: Builder(
+            builder: (context) => IndexedStack(
+              index: bottomNav.selectedIndex,
+              children: [
+                Stack(
+                  children: [
+                    Positioned(
+                      top: 0,
+                      width: widthSize,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
+                            child: SvgPicture.asset('assets/icons/logo.svg'),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.fromLTRB(4, 0, 0, 10),
-                                child: Text(
-                                  AppString.calendarTitle.rawValue,
-                                  style: AppStyle.title.rawValue,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 90,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const TodaySchedule(),
-                                      ),
-                                    );
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.bg.rawValue,
-                                    elevation: 0,
-                                    padding:
-                                    const EdgeInsets.symmetric(vertical: 17, horizontal: 12),
-                                    side: BorderSide(color: AppColor.border.rawValue),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                        child: SvgPicture.asset(
-                                          'assets/icons/calendar.svg',
-                                          width: 24,
-                                          height: 24,
-                                        ),
-                                      ),
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 110,
-                                            child: Text(
-                                              AppString.calendarMainText.rawValue,
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 2,
-                                              style: AppStyle.body.rawValue,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
-                                          SizedBox(
-                                            width: 100,
-                                            child: Text(
-                                              AppString.calendarSubText.rawValue,
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 2,
-                                              style: AppStyle.small.rawValue,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                          buildStudyContainer(),
+                          buildCalendarContainer(),
+                          buildMemoContainer(context),
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(20, 32, 20, 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(4, 0, 0, 0),
-                              child: Text(
-                                AppString.todoTitle.rawValue,
-                                style: AppStyle.title.rawValue,
+                    Positioned(
+                      child: IgnorePointer(
+                        ignoring: memoEditor.ignoring,
+                        child: AnimatedOpacity(
+                          duration: const Duration(milliseconds: 250),
+                          curve: Curves.ease,
+                          opacity: memoEditor.ignoring ? 0 : 1,
+                          child: GestureDetector(
+                            onTap: () {
+                              memoEditorRead.hide();
+                              memoEditor.focus.unfocus();
+                              if (memoChange.isChange) {
+                                memoChangeRead.change();
+                              }
+                            },
+                            child: Container(
+                              color: Colors.white54,
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                                child: const Center(
+                                  child: SizedBox(),
+                                ),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () => {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const TodoList(),
-                                  ),
-                                ),
-                              },
-                              style: TextButton.styleFrom(
-                                foregroundColor: AppColor.primary.rawValue,
-                                padding: const EdgeInsets.symmetric(horizontal: 0),
-                              ),
-                              child: Text(
-                                AppString.todoLink.rawValue,
-                                style: AppStyle.link.rawValue,
-                              ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    AnimatedPositioned(
+                      duration: const Duration(milliseconds: 250),
+                      curve: Curves.ease,
+                      bottom: memoEditor.ignoring
+                          ? 101
+                          : MediaQuery.of(context).padding.bottom + 20,
+                      left: memoEditor.ignoring ? 40 : 20,
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.ease,
+                        width: memoEditor.ignoring
+                            ? widthSize - 80
+                            : widthSize - 40,
+                        height: memoChange.height,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: AppColor.gray1.rawValue),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0x80AFAFAF),
+                              spreadRadius: 0,
+                              blurRadius: memoEditor.blur,
+                              offset: const Offset(0, 0),
                             ),
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 70,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                                ),
-                                child: ElevatedButton.icon(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.bg.rawValue,
-                                    elevation: 0,
-                                    side: BorderSide(color: AppColor.border.rawValue),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  icon: Container(
-                                    width: 22,
-                                    height: 22,
-                                    padding: const EdgeInsets.all(4),
-                                    decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(Radius.circular(50)),
-                                        color: AppColor.border.rawValue),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/plus.svg',
-                                      width: 14,
-                                      height: 14,
-                                      colorFilter: ColorFilter.mode(
-                                          AppColor.placeholder.rawValue, BlendMode.srcIn),
-                                    ),
-                                  ),
-                                  label: Text(
-                                    AppString.todoBoxAddLabel.rawValue,
-                                    style: TextStyle(
-                                      color: AppColor.placeholder.rawValue,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 15,
-                                    ),
+                        child: GestureDetector(
+                          onTap: () {
+                            memoEditorRead.show();
+                            Future.delayed(const Duration(milliseconds: 70))
+                                .then(
+                              (_) => memoEditor.focus.requestFocus(),
+                            );
+                          },
+                          onLongPressStart: (_) {
+                            memoChangeRead.change();
+                            memoEditorRead.show();
+                          },
+                          child: memoChange.isChange
+                              ? const Center(
+                                  child: Text("test"),
+                                )
+                              : TextField(
+                                  enabled: !memoEditor.ignoring,
+                                  readOnly: memoEditor.ignoring,
+                                  focusNode: memoEditor.focus,
+                                  maxLines: null,
+                                  keyboardType: TextInputType.multiline,
+                                  style: AppStyle.body.rawValue,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: '메모를 입력해 주세요.',
                                   ),
                                 ),
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Container(
-                                height: 70,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                                ),
-                                child: ElevatedButton.icon(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.bg.rawValue,
-                                    elevation: 0,
-                                    side: BorderSide(color: AppColor.border.rawValue),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  icon: Container(
-                                    width: 22,
-                                    height: 22,
-                                    padding: const EdgeInsets.all(4),
-                                    decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(Radius.circular(50)),
-                                        color: AppColor.border.rawValue),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/plus.svg',
-                                      width: 14,
-                                      height: 14,
-                                      colorFilter: ColorFilter.mode(
-                                          AppColor.placeholder.rawValue, BlendMode.srcIn),
-                                    ),
-                                  ),
-                                  label: Text(
-                                    AppString.todoBoxAddLabel.rawValue,
-                                    style: TextStyle(
-                                      color: AppColor.placeholder.rawValue,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
-                      ]
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(24, 32, 24, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          AppString.memoTitle.rawValue,
-                          style: TextStyle(
-                            color: AppColor.textPrimary.rawValue,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 24,
-                          ),
-                        ),
-                        TextButton.icon(
-                          onPressed: () => {},
-                          style: TextButton.styleFrom(
-                            foregroundColor: AppColor.primary.rawValue,
-                            iconColor: AppColor.primary.rawValue,
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                          ),
-                          icon: SvgPicture.asset('assets/icons/plus.svg'),
-                          label: Text(
-                            AppString.memoLink.rawValue,
-                            style: AppStyle.link.rawValue,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+                const StudyRecord(),
+                const TodaySchedule(),
+                const TodoList(),
+              ],
             ),
-
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            bottomNavRead.select(index);
+          },
+          currentIndex: bottomNav.selectedIndex,
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 12,
+          selectedItemColor: AppColor.primary.rawValue,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled),
+              label: '홈',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_alarm),
+              label: '공부기록',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: '일정',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.check_box),
+              label: '오늘 할 일',
+            ),
           ],
         ),
       ),

@@ -1,17 +1,35 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/memo_editor.dart';
 
 class MemoEditorNotifier extends StateNotifier<MemoEditor> {
   MemoEditorNotifier()
-      : super(MemoEditor(blur: 0.0, topPosition: 450, memoHeight: 100));
+      : super(
+          MemoEditor(
+            blur: 0,
+            top: 520,
+            ignoring: true,
+            focus: FocusNode(),
+          ),
+        );
 
-  void show(double topPosition) {
-    state = MemoEditor(blur: 12.0, topPosition: topPosition, memoHeight: 270);
+  void show() {
+    state = MemoEditor(
+      blur: 30,
+      top: 150,
+      ignoring: false,
+      focus: state.focus,
+    );
   }
 
   void hide() {
-    state = MemoEditor(blur: 0.0, topPosition: 450, memoHeight: 100);
+    state = MemoEditor(
+      blur: 0,
+      top: 520,
+      ignoring: true,
+      focus: state.focus,
+    );
   }
 }
 
