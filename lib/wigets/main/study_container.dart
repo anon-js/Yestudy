@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../res/colors.dart';
-import '../res/text_styles.dart';
+import '../../res/colors.dart';
+import '../../res/text_styles.dart';
 
 Container buildStudyContainer() {
   return Container(
-    width: 350,
     margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
     decoration: BoxDecoration(

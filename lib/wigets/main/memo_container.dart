@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../res/colors.dart';
-import '../res/strings.dart';
-import '../res/text_styles.dart';
+import '../../res/colors.dart';
+import '../../res/strings.dart';
+import '../../res/text_styles.dart';
 
 Container buildMemoContainer(BuildContext context) {
   return Container(
-    width: 350,
     margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
     decoration: BoxDecoration(
@@ -40,7 +39,6 @@ Container buildMemoContainer(BuildContext context) {
               child: CupertinoButton(
                 onPressed: () {
                   showCupertinoDialog(
-                    barrierLabel: 'asdf',
                     context: context,
                     builder: (BuildContext context) => CupertinoAlertDialog(
                       title: const Text('메모 추가'),
