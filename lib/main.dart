@@ -10,9 +10,9 @@ import 'package:yestudy/viewmodels/memo_editor_notifier.dart';
 import 'package:yestudy/views/study_record_view.dart';
 import 'package:yestudy/views/today_schedule_view.dart';
 import 'package:yestudy/views/todo_list_view.dart';
-import 'package:yestudy/wigets/calendar_container.dart';
-import 'package:yestudy/wigets/memo_container.dart';
-import 'package:yestudy/wigets/study_container.dart';
+import 'package:yestudy/wigets/main/calendar_container.dart';
+import 'package:yestudy/wigets/main/memo_container.dart';
+import 'package:yestudy/wigets/main/study_container.dart';
 
 import 'res/colors.dart';
 import 'res/text_styles.dart';
@@ -38,6 +38,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     final memoEditorRead = ref.read(memoEditorStateNotiferProvider.notifier);
     final memoEditor = ref.watch(memoEditorStateNotiferProvider);
     final memoChangeRead = ref.read(memoChangeStateNotiferProvider.notifier);
