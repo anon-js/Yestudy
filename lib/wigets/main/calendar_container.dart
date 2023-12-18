@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
-import '../res/colors.dart';
-import '../res/strings.dart';
-import '../res/text_styles.dart';
+import '../../res/colors.dart';
+import '../../res/strings.dart';
+import '../../res/text_styles.dart';
 
 Container buildCalendarContainer() {
   return Container(
-    width: 350,
     margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
     decoration: BoxDecoration(
