@@ -1,56 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yestudy/res/colors.dart';
+import 'package:yestudy/wigets/calendar/calendar_grid.dart';
 
 import '../res/text_styles.dart';
+import '../viewmodels/calendar_date_notifier.dart';
+import '../wigets/calendar/schedule.dart';
 
-class TodaySchedule extends StatefulWidget {
+class TodaySchedule extends ConsumerWidget {
   const TodaySchedule({super.key});
 
   @override
-  State<TodaySchedule> createState() => _TodayScheduleState();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final calendarDateNav = ref.watch(calendarDateStateNotiferProvider);
 
-  Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Pretendard',
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const TodaySchedule(),
-    );
-  }
-}
-
-class _TodayScheduleState extends State<TodaySchedule> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+      home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
           title: Text(
-            getToday(),
+            '${calendarDateNav.year}월 ${calendarDateNav.month}일',
             style: AppStyle.boldSubTitle.rawValue,
           ),
         ),
-        body: const Column(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Test page',
+            buildCalendarGrid(context, ref),
+            Container(
+              height: 2,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: AppColor.gray4.rawValue,
+              ),
             ),
+            const SizedBox(height: 16),
+            buildSchedule(context, ref),
           ],
-        ));
-  }
-
-  // var now = DateTime.now();
-  // var firstTime = DateTime(now.year, now.month, now.day - (now.weekday - 1));
-  // var lastTime = DateTime(now.year, now.month, now.day + (7 - now.weekday));
-  // 첫날과 마지막 날 구하는 법
-
-  String getToday() {
-    DateTime now = DateTime.now();
-    DateFormat formatter = DateFormat('yyyy년 MM월');
-    return formatter.format(now);
+        ),
+      ),
+    );
   }
 }
