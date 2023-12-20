@@ -30,20 +30,20 @@ Container buildStudyContainer() {
                 const SizedBox(width: 6),
                 Text(
                   '정보처리산업기사',
-                  style: AppStyle.boldSubTitle.rawValue,
+                  style: AppStyle.semiBold_20px.rawValue,
                 ),
               ],
             ),
             Text(
               'D+7',
-              style: AppStyle.dday.rawValue,
+              style: AppStyle.bold_32px.rawValue,
             ),
             const SizedBox(
               height: 4,
             ),
             Text(
               '정말 수고 많으셨어요!',
-              style: AppStyle.desc.rawValue,
+              style: AppStyle.regular_14px.rawValue,
             ),
           ],
         ),

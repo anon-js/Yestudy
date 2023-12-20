@@ -2,72 +2,87 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
-enum AppStyle { dday, lightTitle, title, subTitle, boldSubTitle, body, bodyDesc, small, link, desc }
+enum AppStyle {
+  bold_32px,
+  bold_24px,
+  semiBold_24px,
+  semiBold_20px,
+  medium_20px,
+  medium_16px,
+  medium_12px,
+  regular_20px,
+  regular_16px,
+  regular_14px,
+  regular_12px,
+}
 
 extension AppStyleExtension on AppStyle {
   TextStyle get rawValue {
     switch (this) {
-      case AppStyle.dday:
+      case AppStyle.bold_32px:
         return TextStyle(
           color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.bold,
           fontSize: 32,
         );
-      case AppStyle.lightTitle:
+      case AppStyle.bold_24px:
         return TextStyle(
-          color: AppColor.gray6.rawValue,
-          fontWeight: FontWeight.w400,
+          color: AppColor.gray9.rawValue,
+          fontWeight: FontWeight.bold,
           fontSize: 24,
         );
-      case AppStyle.title:
+      case AppStyle.semiBold_24px:
         return TextStyle(
           color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.w600,
           fontSize: 24,
         );
-      case AppStyle.subTitle:
-        return TextStyle(
-          color: AppColor.gray6.rawValue,
-          fontWeight: FontWeight.w400,
-          fontSize: 20,
-        );
-      case AppStyle.boldSubTitle:
+      case AppStyle.semiBold_20px:
         return TextStyle(
           color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.w600,
           fontSize: 20,
         );
-      case AppStyle.body:
+      case AppStyle.medium_20px:
         return TextStyle(
           color: AppColor.gray9.rawValue,
-          fontSize: 16,
           fontWeight: FontWeight.w500,
-          height: 1.2,
+          fontSize: 20,
         );
-      case AppStyle.bodyDesc:
+      case AppStyle.medium_16px:
         return TextStyle(
-          color: AppColor.gray6.rawValue,
-          fontSize: 16,
+          color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.w500,
-          height: 1.2,
+          fontSize: 16,
         );
-      case AppStyle.small:
+      case AppStyle.medium_12px:
         return TextStyle(
-          color: AppColor.gray6.rawValue,
+          color: AppColor.gray9.rawValue,
+          fontWeight: FontWeight.w500,
           fontSize: 12,
-          fontWeight: FontWeight.w400,
-          height: 1.2,
         );
-      case AppStyle.link:
+      case AppStyle.regular_20px:
+        return TextStyle(
+          color: AppColor.gray6.rawValue,
+          fontWeight: FontWeight.w400,
+          fontSize: 20,
+        );
+      case AppStyle.regular_16px:
+        return TextStyle(
+          color: AppColor.gray6.rawValue,
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
+        );
+      case AppStyle.regular_14px:
         return const TextStyle(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
           fontSize: 14,
         );
-      case AppStyle.desc:
+      case AppStyle.regular_12px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray6.rawValue,
           fontWeight: FontWeight.w400,
-          fontSize: 16,
+          fontSize: 12,
         );
     }
   }

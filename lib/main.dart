@@ -38,7 +38,6 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final memoEditorRead = ref.read(memoEditorStateNotiferProvider.notifier);
     final memoEditor = ref.watch(memoEditorStateNotiferProvider);
     final memoChangeRead = ref.read(memoChangeStateNotiferProvider.notifier);
@@ -162,7 +161,7 @@ class MyApp extends ConsumerWidget {
                                   focusNode: memoEditor.focus,
                                   maxLines: null,
                                   keyboardType: TextInputType.multiline,
-                                  style: AppStyle.body.rawValue,
+                                  style: AppStyle.regular_12px.rawValue,
                                   decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: '메모를 입력해 주세요.',

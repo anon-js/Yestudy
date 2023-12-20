@@ -55,7 +55,7 @@ class _TodoListState extends State<TodoList> {
       elevation: 0,
       title: Text(
         AppString.todoTitle.rawValue,
-        style: AppStyle.boldSubTitle.rawValue,
+        style: AppStyle.semiBold_20px.rawValue,
       ),
       bottom: TabBar(
         overlayColor: const MaterialStatePropertyAll(Colors.transparent),

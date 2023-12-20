@@ -29,7 +29,7 @@ Container buildMemoContainer(BuildContext context) {
                 const SizedBox(width: 6),
                 Text(
                   AppString.memoTitle.rawValue,
-                  style: AppStyle.boldSubTitle.rawValue,
+                  style: AppStyle.semiBold_20px.rawValue,
                 ),
               ],
             ),

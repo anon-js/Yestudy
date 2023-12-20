@@ -44,7 +44,7 @@ Container buildCalendarContainer() {
             const SizedBox(width: 6),
             Text(
               AppString.calendarTitle.rawValue,
-              style: AppStyle.boldSubTitle.rawValue,
+              style: AppStyle.semiBold_20px.rawValue,
             ),
             const SizedBox(width: 20),
             Container(
@@ -57,12 +57,12 @@ Container buildCalendarContainer() {
               children: [
                 Text(
                   '예스터디 완성 시키기',
-                  style: AppStyle.body.rawValue,
+                  style: AppStyle.medium_16px.rawValue,
                 ),
                 const SizedBox(width: 4),
                 Text(
                   '외 2개',
-                  style: AppStyle.bodyDesc.rawValue,
+                  style: AppStyle.regular_16px.rawValue,
                 ),
               ],
             ),
@@ -79,7 +79,7 @@ Container buildCalendarContainer() {
             const SizedBox(width: 6),
             Text(
               AppString.todoTitle.rawValue,
-              style: AppStyle.boldSubTitle.rawValue,
+              style: AppStyle.semiBold_20px.rawValue,
             ),
             const SizedBox(width: 16),
             Container(
@@ -92,12 +92,12 @@ Container buildCalendarContainer() {
               children: [
                 Text(
                   '메인 화면 구현하기',
-                  style: AppStyle.body.rawValue,
+                  style: AppStyle.medium_16px.rawValue,
                 ),
                 const SizedBox(width: 4),
                 Text(
                   '외 5개',
-                  style: AppStyle.bodyDesc.rawValue,
+                  style: AppStyle.regular_16px.rawValue,
                 ),
               ],
             ),

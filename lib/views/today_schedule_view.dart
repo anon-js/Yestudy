@@ -27,7 +27,7 @@ class TodaySchedule extends ConsumerWidget {
           elevation: 0,
           title: Text(
             '${calendarDateNav.year}월 ${calendarDateNav.month}일',
-            style: AppStyle.boldSubTitle.rawValue,
+            style: AppStyle.semiBold_20px.rawValue,
           ),
         ),
         body: Column(

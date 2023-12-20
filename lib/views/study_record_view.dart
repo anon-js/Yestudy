@@ -53,7 +53,7 @@ class _StudyRecordState extends State<StudyRecord> {
       elevation: 0,
       title: Text(
         AppString.studyTitle.rawValue,
-        style: AppStyle.boldSubTitle.rawValue,
+        style: AppStyle.semiBold_20px.rawValue,
       ),
       bottom: TabBar(
         overlayColor: const MaterialStatePropertyAll(Colors.transparent),
@@ -79,8 +79,6 @@ class _StudyRecordState extends State<StudyRecord> {
   }
 
   Widget _buildWrite() {
-    final formKey = GlobalKey<FormState>();
-
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
       child: Column(
@@ -88,20 +86,19 @@ class _StudyRecordState extends State<StudyRecord> {
         children: [
           Text(
             AppString.writeSubTitle.rawValue,
-            style: AppStyle.subTitle.rawValue,
+            style: AppStyle.regular_20px.rawValue,
           ),
           const SizedBox(
             height: 2,
           ),
           Text(
             AppString.writeMainTitle.rawValue,
-            style: AppStyle.title.rawValue,
+            style: AppStyle.semiBold_24px.rawValue,
           ),
           const SizedBox(
             height: 32,
           ),
           TextFormField(
-            key: formKey,
             decoration: InputDecoration(
               filled: true,
               fillColor: AppColor.gray2.rawValue,
@@ -140,46 +137,67 @@ class _StudyRecordState extends State<StudyRecord> {
   }
 
   Widget _buildOrganize() {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+    return Column(
+      children: [
+        Container(
+          height: 370,
+          decoration: BoxDecoration(
+            color: AppColor.gray2.rawValue,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                AppString.organizeBoldMainTitle.rawValue,
-                style: AppStyle.lightTitle.rawValue,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        AppString.organizeBoldMainTitle.rawValue,
+                        style: AppStyle.bold_24px.rawValue,
+                      ),
+                      Text(
+                        AppString.organizeMainTitle.rawValue,
+                        style: AppStyle.bold_24px.rawValue,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        AppString.organizeBoldSubTitle.rawValue,
+                        style: AppStyle.medium_20px.rawValue,
+                      ),
+                      Text(
+                        AppString.organizeSubTitle.rawValue,
+                        style: AppStyle.medium_20px.rawValue,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                ],
               ),
-              Text(
-                AppString.organizeMainTitle.rawValue,
-                style: AppStyle.title.rawValue,
+              Column(
+                children: [
+                  _buildProgressBar(
+                      subject: '수학', time: '2h 30m', value: 0.58),
+                  _buildProgressBar(
+                      subject: 'DB', time: '1h 10m', value: 0.27),
+                  _buildProgressBar(subject: '문학', time: '40m', value: 0.15),
+                ],
               ),
             ],
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          Row(
-            children: [
-              Text(
-                AppString.organizeBoldSubTitle.rawValue,
-                style: AppStyle.boldSubTitle.rawValue,
-              ),
-              Text(
-                AppString.organizeSubTitle.rawValue,
-                style: AppStyle.subTitle.rawValue,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          _buildProgressBar(subject: '수학', time: '2시간 30분', value: 0.58),
-          _buildProgressBar(subject: 'DB', time: '1시간 10분', value: 0.27),
-          _buildProgressBar(subject: '문학', time: '40분', value: 0.15),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -187,27 +205,19 @@ class _StudyRecordState extends State<StudyRecord> {
       {required String subject, required String time, required double value}) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(subject),
-            Text(time),
-          ],
-        ),
+        Text(time),
         const SizedBox(
-          height: 6,
+          height: 4,
         ),
-        LinearProgressIndicator(
-          // 260 / 140
+        CircularProgressIndicator(
           value: value,
-          minHeight: 32,
           backgroundColor: AppColor.gray2.rawValue,
           valueColor: AlwaysStoppedAnimation<Color>(AppColor.primary.rawValue),
-          borderRadius: BorderRadius.circular(10),
         ),
         const SizedBox(
-          height: 14,
+          height: 4,
         ),
+        Text(subject),
       ],
     );
   }

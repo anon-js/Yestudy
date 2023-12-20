@@ -24,7 +24,7 @@ Container buildSchedule(BuildContext context, WidgetRef ref) {
             '토',
             '일'
           ][DateTime.now().weekday - 1]}요일',
-          style: AppStyle.boldSubTitle.rawValue,
+          style: AppStyle.semiBold_20px.rawValue,
         ),
         SizedBox(
           width: 32,
