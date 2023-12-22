@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 enum AppColor {
   primary,
+  primary1,
   gray1,
   gray2,
   gray3,
@@ -21,6 +22,8 @@ extension AppColorExtension on AppColor {
     switch (this) {
       case AppColor.primary:
         return const Color(0xff3A5FCC);
+      case AppColor.primary1:
+        return const Color(0xff193895);
       case AppColor.gray1:
         return const Color(0xffF7F8FB);
       case AppColor.gray2:

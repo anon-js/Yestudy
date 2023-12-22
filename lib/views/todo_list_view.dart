@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yestudy/wigets/common/tab_bar.dart';
 
 import '../res/colors.dart';
 import '../res/strings.dart';
-import '../res/text_styles.dart';
 
 List<String> todoOptions = [
   '할 일은 여기에 표시돼요1',
@@ -37,45 +37,13 @@ class _TodoListState extends State<TodoList> {
       length: 2,
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: _buildAppBar(),
+        appBar: buildTabBar(AppString.todoTitle.rawValue, AppString.todoTabTitle.rawValue, AppString.doneTabTitle.rawValue),
         body: TabBarView(
           children: [
             _buildTodoList(),
             _buildDoneList(),
           ],
         ),
-      ),
-    );
-  }
-
-  PreferredSizeWidget _buildAppBar() {
-    return AppBar(
-      foregroundColor: Colors.black,
-      backgroundColor: Colors.white,
-      elevation: 0,
-      title: Text(
-        AppString.todoTitle.rawValue,
-        style: AppStyle.semiBold_20px.rawValue,
-      ),
-      bottom: TabBar(
-        overlayColor: const MaterialStatePropertyAll(Colors.transparent),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        dividerColor: AppColor.gray4.rawValue,
-        indicatorSize: TabBarIndicatorSize.tab,
-        indicator: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 4,
-              color: AppColor.gray9.rawValue,
-            ),
-          ),
-        ),
-        labelColor: AppColor.gray9.rawValue,
-        unselectedLabelColor: AppColor.gray6.rawValue,
-        tabs: [
-          Tab(text: AppString.todoTabTitle.rawValue),
-          Tab(text: AppString.doneTabTitle.rawValue),
-        ],
       ),
     );
   }

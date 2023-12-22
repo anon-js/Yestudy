@@ -161,7 +161,7 @@ class MyApp extends ConsumerWidget {
                                   focusNode: memoEditor.focus,
                                   maxLines: null,
                                   keyboardType: TextInputType.multiline,
-                                  style: AppStyle.regular_12px.rawValue,
+                                  style: AppStyle.regular_14px.rawValue,
                                   decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: '메모를 입력해 주세요.',

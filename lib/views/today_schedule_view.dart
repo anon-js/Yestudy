@@ -26,7 +26,7 @@ class TodaySchedule extends ConsumerWidget {
           backgroundColor: Colors.white,
           elevation: 0,
           title: Text(
-            '${calendarDateNav.year}월 ${calendarDateNav.month}일',
+            '${calendarDateNav.year}년 ${calendarDateNav.month}월',
             style: AppStyle.semiBold_20px.rawValue,
           ),
         ),

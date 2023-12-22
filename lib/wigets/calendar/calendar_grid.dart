@@ -7,7 +7,6 @@ import '../../viewmodels/calendar_date_notifier.dart';
 GridView buildCalendarGrid(BuildContext context, WidgetRef ref) {
   final calendarDateRead = ref.read(calendarDateStateNotiferProvider.notifier);
   final calendarDate = ref.watch(calendarDateStateNotiferProvider);
-
   final week = ['일', '월', '화', '수', '목', '금', '토'];
 
   return GridView.custom(
@@ -20,12 +19,15 @@ GridView buildCalendarGrid(BuildContext context, WidgetRef ref) {
       (BuildContext context, int index) {
         return GestureDetector(
           onTap: () {
-            calendarDateRead.setDay(index);
+            if (index > calendarDate.firstDay + 6 &&
+                index < calendarDate.days + calendarDate.firstDay + 7) {
+              calendarDateRead.setDay(index);
+            }
           },
-          onHorizontalDragStart: (details) {
-            if (details.localPosition.dx > 0) {
+          onHorizontalDragEnd: (details) {
+            if (details.velocity.pixelsPerSecond.dx > 0) {
               calendarDateRead.prev();
-            } else if (details.localPosition.dx < 0) {
+            } else if (details.velocity.pixelsPerSecond.dx < 0) {
               calendarDateRead.next();
             }
           },
@@ -56,8 +58,9 @@ GridView buildCalendarGrid(BuildContext context, WidgetRef ref) {
                   index < 7
                       ? week[index]
                       : index > calendarDate.firstDay + 6 &&
-                              index < calendarDate.days + calendarDate.firstDay + 6
-                          ? '${DateTime(calendarDate.year, calendarDate.month, index - (calendarDate.firstDay + 6)).day}'
+                              index <
+                                  calendarDate.days + calendarDate.firstDay + 7
+                          ? '${index - (calendarDate.firstDay + 6)}'
                           : '',
                   style: TextStyle(
                       color: index == calendarDate.selectedDate

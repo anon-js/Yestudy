@@ -63,13 +63,13 @@ extension AppStyleExtension on AppStyle {
         );
       case AppStyle.regular_20px:
         return TextStyle(
-          color: AppColor.gray6.rawValue,
+          color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.w400,
           fontSize: 20,
         );
       case AppStyle.regular_16px:
         return TextStyle(
-          color: AppColor.gray6.rawValue,
+          color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.w400,
           fontSize: 16,
         );
@@ -80,7 +80,7 @@ extension AppStyleExtension on AppStyle {
         );
       case AppStyle.regular_12px:
         return TextStyle(
-          color: AppColor.gray6.rawValue,
+          color: AppColor.gray9.rawValue,
           fontWeight: FontWeight.w400,
           fontSize: 12,
         );

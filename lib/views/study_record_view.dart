@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yestudy/wigets/common/tab_bar.dart';
 
 import '../services/notification_service.dart';
 import '../res/strings.dart';
 import '../res/colors.dart';
 import '../res/text_styles.dart';
+import '../wigets/study/cancel_btn.dart';
+import '../wigets/study/start_btn.dart';
 
-class StudyRecord extends StatefulWidget {
+class Subject {
+  final String name;
+  final String time;
+  final double ratio;
+
+  const Subject({
+    required this.name,
+    required this.time,
+    required this.ratio,
+  });
+}
+
+class StudyRecord extends ConsumerStatefulWidget {
   const StudyRecord({super.key});
 
   @override
-  State<StudyRecord> createState() => _StudyRecordState();
+  StudyRecordState createState() => StudyRecordState();
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +38,7 @@ class StudyRecord extends StatefulWidget {
   }
 }
 
-class _StudyRecordState extends State<StudyRecord> {
+class StudyRecordState extends ConsumerState<StudyRecord> {
   @override
   void initState() {
     FlutterLocalNotification.init();
@@ -35,7 +51,10 @@ class _StudyRecordState extends State<StudyRecord> {
       length: 2,
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: _buildAppBar(),
+        appBar: buildTabBar(
+            AppString.studyTitle.rawValue,
+            AppString.writeTabTitle.rawValue,
+            AppString.organizeTabTitle.rawValue),
         body: TabBarView(
           children: [
             _buildWrite(),
@@ -46,41 +65,9 @@ class _StudyRecordState extends State<StudyRecord> {
     );
   }
 
-  PreferredSizeWidget _buildAppBar() {
-    return AppBar(
-      foregroundColor: AppColor.gray9.rawValue,
-      backgroundColor: Colors.white,
-      elevation: 0,
-      title: Text(
-        AppString.studyTitle.rawValue,
-        style: AppStyle.semiBold_20px.rawValue,
-      ),
-      bottom: TabBar(
-        overlayColor: const MaterialStatePropertyAll(Colors.transparent),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        dividerColor: AppColor.gray4.rawValue,
-        indicatorSize: TabBarIndicatorSize.tab,
-        indicator: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 4,
-              color: AppColor.gray9.rawValue,
-            ),
-          ),
-        ),
-        labelColor: AppColor.gray9.rawValue,
-        unselectedLabelColor: AppColor.gray6.rawValue,
-        tabs: [
-          Tab(text: AppString.writeTabTitle.rawValue),
-          Tab(text: AppString.organizeTabTitle.rawValue),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildWrite() {
+  Container _buildWrite() {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
+      margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -124,11 +111,11 @@ class _StudyRecordState extends State<StudyRecord> {
           ),
           Row(
             children: [
-              _buildCancelBtn(),
+              buildCancelBtn(),
               const SizedBox(
                 width: 10,
               ),
-              _buildStartBtn(),
+              buildStartBtn(),
             ],
           ),
         ],
@@ -136,143 +123,164 @@ class _StudyRecordState extends State<StudyRecord> {
     );
   }
 
-  Widget _buildOrganize() {
-    return Column(
-      children: [
-        Container(
-          height: 370,
-          decoration: BoxDecoration(
-            color: AppColor.gray2.rawValue,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 20),
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Container _buildOrganize() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildStudyTimeContainer(),
+          const SizedBox(height: 20),
+          _buildTodaysRecs(),
+          const SizedBox(height: 32),
+          _buildThingAsk(),
+        ],
+      ),
+    );
+  }
+
+  Container _buildStudyTimeContainer() {
+    return Container(
+      height: 370,
+      decoration: BoxDecoration(
+        color: AppColor.gray2.rawValue,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        AppString.organizeBoldMainTitle.rawValue,
-                        style: AppStyle.bold_24px.rawValue,
-                      ),
-                      Text(
-                        AppString.organizeMainTitle.rawValue,
-                        style: AppStyle.bold_24px.rawValue,
-                      ),
-                    ],
+                  Text(
+                    '${AppString.organizeBoldMainTitle.rawValue} ',
+                    style: AppStyle.bold_24px.rawValue
+                        .copyWith(color: AppColor.gray8.rawValue),
                   ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        AppString.organizeBoldSubTitle.rawValue,
-                        style: AppStyle.medium_20px.rawValue,
-                      ),
-                      Text(
-                        AppString.organizeSubTitle.rawValue,
-                        style: AppStyle.medium_20px.rawValue,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
+                  Text(
+                    AppString.organizeMainTitle.rawValue,
+                    style: AppStyle.bold_24px.rawValue
+                        .copyWith(color: AppColor.primary.rawValue),
                   ),
                 ],
               ),
-              Column(
+              const SizedBox(
+                height: 4,
+              ),
+              Row(
                 children: [
-                  _buildProgressBar(
-                      subject: '수학', time: '2h 30m', value: 0.58),
-                  _buildProgressBar(
-                      subject: 'DB', time: '1h 10m', value: 0.27),
-                  _buildProgressBar(subject: '문학', time: '40m', value: 0.15),
+                  Text(
+                    AppString.organizeBoldSubTitle.rawValue,
+                    style: AppStyle.medium_20px.rawValue
+                        .copyWith(color: AppColor.gray7.rawValue),
+                  ),
+                  Text(
+                    AppString.organizeSubTitle.rawValue,
+                    style: AppStyle.medium_20px.rawValue
+                        .copyWith(color: AppColor.gray7.rawValue),
+                  ),
                 ],
               ),
             ],
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: Center(
+              child: _buildGraph([
+                const Subject(name: 'DB', time: '1h 10m', ratio: 0.5),
+                const Subject(name: '문학', time: '40m', ratio: 0.14),
+                const Subject(name: '사회', time: '45m', ratio: 0.2),
+                const Subject(name: '수학', time: '2h 30m', ratio: 0.9),
+                const Subject(name: 'HTML', time: '50m', ratio: 0.27),
+                const Subject(name: '소프트웨어', time: '1h 50m', ratio: 0.8),
+                const Subject(name: '음악', time: '1h 55m', ratio: 0.82),
+                const Subject(name: '개발', time: '3h', ratio: 1),
+              ]),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildProgressBar(
-      {required String subject, required String time, required double value}) {
+  Column _buildTodaysRecs() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(time),
-        const SizedBox(
-          height: 4,
+        Text(
+          '오늘의 추천',
+          style: AppStyle.semiBold_20px.rawValue,
         ),
-        CircularProgressIndicator(
-          value: value,
-          backgroundColor: AppColor.gray2.rawValue,
-          valueColor: AlwaysStoppedAnimation<Color>(AppColor.primary.rawValue),
+        const SizedBox(height: 4),
+        Text(
+          '지금까지 수학과 DB를 열심히 공부했으니\n오늘은 문학을 공부해보는 건 어때요?',
+          style: AppStyle.regular_16px.rawValue
+              .copyWith(color: AppColor.gray7.rawValue),
         ),
-        const SizedBox(
-          height: 4,
-        ),
-        Text(subject),
       ],
     );
   }
 
-  Widget _buildCancelBtn() {
-    return Expanded(
-      child: SizedBox(
-        height: 42,
-        child: ElevatedButton(
-          onPressed: null,
-          style: ElevatedButton.styleFrom(
-            foregroundColor: AppColor.gray9.rawValue,
-            backgroundColor: AppColor.gray2.rawValue,
-            disabledForegroundColor: AppColor.gray6.rawValue,
-            disabledBackgroundColor: AppColor.gray5.rawValue,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          child: Text(
-            AppString.writeCancelBtn.rawValue,
-          ),
+  Column _buildThingAsk() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '어려움을 극복할 때마다 더 강해진다.',
+          style: AppStyle.regular_16px.rawValue,
         ),
-      ),
+        Text(
+          '- 아놀드 슈워제네거',
+          style: AppStyle.regular_14px.rawValue
+              .copyWith(color: AppColor.gray7.rawValue),
+        ),
+      ],
     );
   }
 
-  Widget _buildStartBtn() {
-    return Expanded(
-      child: SizedBox(
-        height: 42,
-        child: ElevatedButton(
-          onPressed: () async {
-            await FlutterLocalNotification.requestNotificationPermission();
-            await FlutterLocalNotification.showNotification(
-              AppString.noticeTitle.rawValue,
-              AppString.noticeDesc.rawValue,
-            );
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColor.startBtnBg.rawValue,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          child: Text(
-            AppString.writeStartBtn.rawValue,
-            style: TextStyle(
-              color: AppColor.startBtn.rawValue,
-            ),
-          ),
-        ),
-      ),
-    );
+  ListView _buildGraph(List<Subject> subjects) {
+    subjects.sort((a, b) => a.ratio.compareTo(b.ratio));
+    return ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: subjects.length,
+        itemBuilder: (BuildContext context, int i) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                subjects[i].time,
+                style: subjects[i].ratio != subjects.last.ratio
+                    ? AppStyle.regular_12px.rawValue
+                        .copyWith(color: AppColor.gray6.rawValue)
+                    : AppStyle.regular_12px.rawValue
+                        .copyWith(color: AppColor.primary1.rawValue),
+              ),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 150),
+                width: 35,
+                height: 190 * subjects[i].ratio,
+                margin: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: subjects[i].ratio != subjects.last.ratio
+                      ? AppColor.gray5.rawValue
+                      : AppColor.primary.rawValue,
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(10)),
+                ),
+              ),
+              Text(
+                subjects[i].name,
+                style: AppStyle.regular_12px.rawValue
+                    .copyWith(color: AppColor.gray8.rawValue),
+              ),
+            ],
+          );
+        });
   }
 }

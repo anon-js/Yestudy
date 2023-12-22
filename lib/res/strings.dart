@@ -47,7 +47,7 @@ extension AppStringExtension on AppString {
       case AppString.writeTabTitle:
         return '기록';
       case AppString.organizeTabTitle:
-        return '정리';
+        return '학습정리';
       case AppString.writeMainTitle:
         return '민호님 화이팅 :)';
       case AppString.writeSubTitle:
@@ -65,9 +65,9 @@ extension AppStringExtension on AppString {
       case AppString.organizeBoldMainTitle:
         return '총 공부 시간:';
       case AppString.organizeMainTitle:
-        return '4시간 20분';
+        return '12시간';
       case AppString.organizeBoldSubTitle:
-        return '수학';
+        return '개발';
       case AppString.organizeSubTitle:
         return '을 제일 많이 공부했어요.';
       case AppString.noticeTitle:
@@ -89,9 +89,9 @@ extension AppStringExtension on AppString {
       case AppString.todoBoxAddLabel:
         return '할 일 추가하기';
       case AppString.todoTabTitle:
-        return 'To-do';
+        return '할 일';
       case AppString.doneTabTitle:
-        return 'Done';
+        return '완료';
       case AppString.todoItemText:
         return '할 일은 여기에 표시돼요!';
       case AppString.doneItemText:
