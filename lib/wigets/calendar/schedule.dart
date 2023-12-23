@@ -38,7 +38,7 @@ Container buildSchedule(BuildContext context, WidgetRef ref) {
                   content: const Text('기능을 구현하고 있어요.'),
                   actions: [
                     CupertinoDialogAction(
-                      textStyle: TextStyle(color: AppColor.primary.rawValue),
+                      textStyle: TextStyle(color: AppColor.primary_500.rawValue),
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -50,7 +50,7 @@ Container buildSchedule(BuildContext context, WidgetRef ref) {
             },
             borderRadius: BorderRadius.circular(50),
             padding: const EdgeInsets.all(5),
-            color: AppColor.gray7.rawValue,
+            color: AppColor.gray_600.rawValue,
             child: SvgPicture.asset(
               'assets/icons/plus.svg',
               width: 14,

@@ -38,7 +38,7 @@ class TodaySchedule extends ConsumerWidget {
               height: 2,
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                color: AppColor.gray4.rawValue,
+                color: AppColor.gray_300.rawValue,
               ),
             ),
             const SizedBox(height: 16),

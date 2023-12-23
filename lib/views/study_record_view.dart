@@ -88,19 +88,19 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
           TextFormField(
             decoration: InputDecoration(
               filled: true,
-              fillColor: AppColor.gray2.rawValue,
+              fillColor: AppColor.gray_100.rawValue,
               hintText: AppString.writeInputHint.rawValue,
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
-                  color: AppColor.gray2.rawValue,
+                  color: AppColor.gray_100.rawValue,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
-                  color: AppColor.primary.rawValue,
+                  color: AppColor.primary_500.rawValue,
                 ),
               ),
             ),
@@ -143,7 +143,7 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
     return Container(
       height: 370,
       decoration: BoxDecoration(
-        color: AppColor.gray2.rawValue,
+        color: AppColor.gray_100.rawValue,
         borderRadius: BorderRadius.circular(10),
       ),
       padding: const EdgeInsets.all(20),
@@ -158,12 +158,12 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
                   Text(
                     '${AppString.organizeBoldMainTitle.rawValue} ',
                     style: AppStyle.bold_24px.rawValue
-                        .copyWith(color: AppColor.gray8.rawValue),
+                        .copyWith(color: AppColor.gray_700.rawValue),
                   ),
                   Text(
                     AppString.organizeMainTitle.rawValue,
                     style: AppStyle.bold_24px.rawValue
-                        .copyWith(color: AppColor.primary.rawValue),
+                        .copyWith(color: AppColor.primary_500.rawValue),
                   ),
                 ],
               ),
@@ -175,12 +175,12 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
                   Text(
                     AppString.organizeBoldSubTitle.rawValue,
                     style: AppStyle.medium_20px.rawValue
-                        .copyWith(color: AppColor.gray7.rawValue),
+                        .copyWith(color: AppColor.gray_600.rawValue),
                   ),
                   Text(
                     AppString.organizeSubTitle.rawValue,
                     style: AppStyle.medium_20px.rawValue
-                        .copyWith(color: AppColor.gray7.rawValue),
+                        .copyWith(color: AppColor.gray_600.rawValue),
                   ),
                 ],
               ),
@@ -220,7 +220,7 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
         Text(
           '지금까지 수학과 DB를 열심히 공부했으니\n오늘은 문학을 공부해보는 건 어때요?',
           style: AppStyle.regular_16px.rawValue
-              .copyWith(color: AppColor.gray7.rawValue),
+              .copyWith(color: AppColor.gray_600.rawValue),
         ),
       ],
     );
@@ -237,7 +237,7 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
         Text(
           '- 아놀드 슈워제네거',
           style: AppStyle.regular_14px.rawValue
-              .copyWith(color: AppColor.gray7.rawValue),
+              .copyWith(color: AppColor.gray_600.rawValue),
         ),
       ],
     );
@@ -257,9 +257,9 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
                 subjects[i].time,
                 style: subjects[i].ratio != subjects.last.ratio
                     ? AppStyle.regular_12px.rawValue
-                        .copyWith(color: AppColor.gray6.rawValue)
+                        .copyWith(color: AppColor.gray_500.rawValue)
                     : AppStyle.regular_12px.rawValue
-                        .copyWith(color: AppColor.primary1.rawValue),
+                        .copyWith(color: AppColor.primary_800.rawValue),
               ),
               AnimatedContainer(
                 duration: const Duration(milliseconds: 150),
@@ -268,8 +268,8 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
                 margin: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color: subjects[i].ratio != subjects.last.ratio
-                      ? AppColor.gray5.rawValue
-                      : AppColor.primary.rawValue,
+                      ? AppColor.gray_400.rawValue
+                      : AppColor.primary_500.rawValue,
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(10)),
                 ),
@@ -277,7 +277,7 @@ class StudyRecordState extends ConsumerState<StudyRecord> {
               Text(
                 subjects[i].name,
                 style: AppStyle.regular_12px.rawValue
-                    .copyWith(color: AppColor.gray8.rawValue),
+                    .copyWith(color: AppColor.gray_700.rawValue),
               ),
             ],
           );

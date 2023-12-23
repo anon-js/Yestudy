@@ -67,7 +67,7 @@ class _TodoListState extends State<TodoList> {
           ),
           secondaryBackground: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            color: AppColor.primary.rawValue,
+            color: AppColor.primary_500.rawValue,
             alignment: Alignment.centerRight,
             child: const Icon(
               Icons.edit,
@@ -109,8 +109,8 @@ class _TodoListState extends State<TodoList> {
           borderRadius: BorderRadius.circular(10),
         ),
         onChanged: null,
-        tileColor: AppColor.gray2.rawValue,
-        selectedTileColor: AppColor.primary.rawValue,
+        tileColor: AppColor.gray_100.rawValue,
+        selectedTileColor: AppColor.primary_500.rawValue,
         selected: isCheck || false,
         title: Text(
           AppString.todoItemText.rawValue,

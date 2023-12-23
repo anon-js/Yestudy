@@ -10,10 +10,10 @@ Expanded buildCancelBtn() {
       child: ElevatedButton(
         onPressed: null,
         style: ElevatedButton.styleFrom(
-          foregroundColor: AppColor.gray9.rawValue,
-          backgroundColor: AppColor.gray2.rawValue,
-          disabledForegroundColor: AppColor.gray6.rawValue,
-          disabledBackgroundColor: AppColor.gray5.rawValue,
+          foregroundColor: AppColor.gray_800.rawValue,
+          backgroundColor: AppColor.gray_100.rawValue,
+          disabledForegroundColor: AppColor.gray_500.rawValue,
+          disabledBackgroundColor: AppColor.gray_400.rawValue,
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),

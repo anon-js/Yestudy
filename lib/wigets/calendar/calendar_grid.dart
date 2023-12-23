@@ -38,10 +38,10 @@ GridView buildCalendarGrid(BuildContext context, WidgetRef ref) {
               border: Border(
                 top: index < 7
                     ? const BorderSide(style: BorderStyle.none)
-                    : BorderSide(color: AppColor.gray4.rawValue),
+                    : BorderSide(color: AppColor.gray_300.rawValue),
                 right: index < 7 || index % 7 == 6
                     ? const BorderSide(style: BorderStyle.none)
-                    : BorderSide(color: AppColor.gray4.rawValue),
+                    : BorderSide(color: AppColor.gray_300.rawValue),
               ),
             ),
             child: Align(
@@ -51,7 +51,7 @@ GridView buildCalendarGrid(BuildContext context, WidgetRef ref) {
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
                     color: index == calendarDate.selectedDate
-                        ? AppColor.primary.rawValue
+                        ? AppColor.primary_500.rawValue
                         : null,
                     shape: BoxShape.circle),
                 child: Text(
@@ -69,7 +69,7 @@ GridView buildCalendarGrid(BuildContext context, WidgetRef ref) {
                               ? Colors.red
                               : index % 7 == 6
                                   ? Colors.blue
-                                  : AppColor.gray9.rawValue),
+                                  : AppColor.gray_800.rawValue),
                 ),
               ),
             ),

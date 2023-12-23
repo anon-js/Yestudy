@@ -13,6 +13,7 @@ import 'package:yestudy/views/todo_list_view.dart';
 import 'package:yestudy/wigets/main/calendar_container.dart';
 import 'package:yestudy/wigets/main/memo_container.dart';
 import 'package:yestudy/wigets/main/study_container.dart';
+import 'package:yestudy/wigets/main/todo_container.dart';
 
 import 'res/colors.dart';
 import 'res/text_styles.dart';
@@ -76,6 +77,7 @@ class MyApp extends ConsumerWidget {
                           ),
                           buildStudyContainer(),
                           buildCalendarContainer(),
+                          buildTodoContainer(),
                           buildMemoContainer(context),
                         ],
                       ),
@@ -113,22 +115,20 @@ class MyApp extends ConsumerWidget {
                       duration: const Duration(milliseconds: 250),
                       curve: Curves.ease,
                       bottom: memoEditor.ignoring
-                          ? 101
+                          ? 204
                           : MediaQuery.of(context).padding.bottom + 20,
-                      left: memoEditor.ignoring ? 40 : 20,
+                      left: 20,
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 250),
                         curve: Curves.ease,
-                        width: memoEditor.ignoring
-                            ? widthSize - 80
-                            : widthSize - 40,
+                        width: widthSize - 40,
                         height: memoChange.height,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: AppColor.gray1.rawValue),
+                          color: AppColor.gray_50.rawValue,
+                          border: Border.all(color: AppColor.gray_200.rawValue),
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
@@ -186,7 +186,7 @@ class MyApp extends ConsumerWidget {
           currentIndex: bottomNav.selectedIndex,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: 12,
-          selectedItemColor: AppColor.primary.rawValue,
+          selectedItemColor: AppColor.primary_500.rawValue,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),

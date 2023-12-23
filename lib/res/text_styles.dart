@@ -21,55 +21,55 @@ extension AppStyleExtension on AppStyle {
     switch (this) {
       case AppStyle.bold_32px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.bold,
           fontSize: 32,
         );
       case AppStyle.bold_24px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.bold,
           fontSize: 24,
         );
       case AppStyle.semiBold_24px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w600,
           fontSize: 24,
         );
       case AppStyle.semiBold_20px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w600,
           fontSize: 20,
         );
       case AppStyle.medium_20px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w500,
           fontSize: 20,
         );
       case AppStyle.medium_16px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w500,
           fontSize: 16,
         );
       case AppStyle.medium_12px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w500,
           fontSize: 12,
         );
       case AppStyle.regular_20px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w400,
           fontSize: 20,
         );
       case AppStyle.regular_16px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w400,
           fontSize: 16,
         );
@@ -80,7 +80,7 @@ extension AppStyleExtension on AppStyle {
         );
       case AppStyle.regular_12px:
         return TextStyle(
-          color: AppColor.gray9.rawValue,
+          color: AppColor.gray_800.rawValue,
           fontWeight: FontWeight.w400,
           fontSize: 12,
         );

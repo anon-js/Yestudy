@@ -6,46 +6,79 @@ import '../../res/text_styles.dart';
 
 Container buildStudyContainer() {
   return Container(
-    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-    decoration: BoxDecoration(
-      color: AppColor.gray2.rawValue,
-      borderRadius: BorderRadius.circular(10),
-      border: Border.all(color: AppColor.gray1.rawValue),
-    ),
+    margin: const EdgeInsets.fromLTRB(20, 32, 20, 0),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                SvgPicture.asset(
-                  'assets/icons/book.svg',
-                  width: 24,
-                  height: 24,
-                ),
-                const SizedBox(width: 6),
-                Text(
-                  '정보처리산업기사',
-                  style: AppStyle.semiBold_20px.rawValue,
-                ),
-              ],
-            ),
-            Text(
-              'D+7',
-              style: AppStyle.bold_32px.rawValue,
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Text(
-              '정말 수고 많으셨어요!',
-              style: AppStyle.regular_14px.rawValue,
-            ),
-          ],
+        Container(
+          width: 32,
+          height: 32,
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: AppColor.primary_50.rawValue,
+            shape: BoxShape.circle,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/book.svg',
+            width: 20,
+            height: 20,
+          ),
+        ),
+        const SizedBox(width: 6),
+        Expanded(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '정보처리산업기사',
+                    style: AppStyle.semiBold_20px.rawValue,
+                  ),
+                  Text(
+                    'D+19',
+                    style: AppStyle.semiBold_20px.rawValue
+                        .copyWith(color: AppColor.primary_500.rawValue),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        '공부한 시간 ',
+                        style: AppStyle.medium_16px.rawValue
+                            .copyWith(color: AppColor.gray_500.rawValue),
+                      ),
+                      Text(
+                        '23h 59m 59s',
+                        style: AppStyle.medium_16px.rawValue
+                            .copyWith(color: AppColor.gray_700.rawValue),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        '23h 59h 59s',
+                        style: AppStyle.regular_12px.rawValue
+                            .copyWith(color: AppColor.gray_500.rawValue),
+                      ),
+                      SvgPicture.asset(
+                        'assets/icons/up.svg',
+                        width: 20,
+                        height: 20,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ],
     ),
