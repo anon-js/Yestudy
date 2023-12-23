@@ -8,7 +8,7 @@
 PRODUCT_NAME = yestudy
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.anon.yestudy.yestudy
+PRODUCT_BUNDLE_IDENTIFIER = com.anon.study
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 com.anon.yestudy. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 com.anon.study. All rights reserved.
