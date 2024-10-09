@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.11",
+    "@react-native/codegen": "0.75.4",
     "@react-navigation/bottom-tabs": "6.6.1",
     "@react-navigation/native-stack": "6.11.0",
     "@types/styled-components-react-native": "5.2.5",
