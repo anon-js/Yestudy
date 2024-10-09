@@ -1,11 +1,10 @@
-import {HeaderText} from '../styles/index.styled.ts';
+import {HeaderText, ListView, ListWrapper, RenderItem, SafeAreaView} from '@styles/index.styled.ts';
 import React, {useMemo} from 'react';
 import dayjs from 'dayjs';
-import TodoItem from '../components/TodoItem.tsx';
-import {Container, TodoItemView, TodoList} from '../styles/TodoScreen.styled.ts';
+import TodoItem from '@components/TodoItem.tsx';
 import {ListRenderItem} from 'react-native';
 
-interface Item {
+interface ItemProps {
   id: number;
   title: string;
   endDate: string;
@@ -14,44 +13,37 @@ interface Item {
 const TodoScreen = () => {
   const date = useMemo(() => dayjs().format('M월 D일'), []);
 
-  const todos: Item[] = useMemo(() => [
+  const todos: ItemProps[] = useMemo(() => [
     {
       id: 1,
       title: '할 일 1',
       endDate: '10/7 12:00',
     },
-    {
-      id: 2,
-      title: '할 일 2',
-      endDate: '10/7 12:00',
-    },
-    {
-      id: 3,
-      title: '할 일 3',
-      endDate: '10/7 12:00',
-    },
   ], []);
-  const renderItem: ListRenderItem<Item> = ({item, index}) => {
+  const renderItem: ListRenderItem<ItemProps> = ({item, index}) => {
     const isLastItem = index === todos.length - 1;
 
     return (
-      <TodoItemView isLastItem={isLastItem}>
+      <RenderItem isLastItem={isLastItem}>
         <TodoItem
           title={item.title}
           endDate={item.endDate}
         />
-      </TodoItemView>
+      </RenderItem>
     );
   };
 
   return (
-    <Container>
-      <HeaderText>{date}</HeaderText>
-      <TodoList
-        data={todos}
-        renderItem={renderItem}
-      />
-    </Container>
+    <SafeAreaView>
+      <ListWrapper>
+        <HeaderText>{date}</HeaderText>
+        <ListView
+          data={todos}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </ListWrapper>
+    </SafeAreaView>
   );
 };
 
