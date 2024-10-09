@@ -1,12 +1,14 @@
-import {HeaderText, MainView} from '../styles/index.styled.ts';
+import {HeaderText, MainView, SafeAreaView} from '@styles/index.styled.ts';
 
 const MyScreen = () => {
   return (
-    <MainView>
-      <HeaderText>
-        내 정보
-      </HeaderText>
-    </MainView>
+    <SafeAreaView>
+      <MainView>
+        <HeaderText>
+          내 정보
+        </HeaderText>
+      </MainView>
+    </SafeAreaView>
   );
 };
 

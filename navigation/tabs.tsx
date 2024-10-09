@@ -1,16 +1,16 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen.tsx';
-import TodoScreen from '../screens/TodoScreen.tsx';
-import MemoScreen from '../screens/MemoScreen.tsx';
-import CalendarScreen from '../screens/CalendarScreen.tsx';
-import MyScreen from '../screens/MyScreen.tsx';
-import HomeIcon from '../components/icons/HomeIcon.tsx';
-import TodoIcon from '../components/icons/TodoIcon.tsx';
-import MemoIcon from '../components/icons/MemoIcon.tsx';
-import MyIcon from '../components/icons/MyIcon.tsx';
-import CalendarIcon from '../components/icons/CalendarIcon.tsx';
-import {IconLabel, IconView} from '../styles/tabs.styled.ts';
+import HomeScreen from '@screens/HomeScreen.tsx';
+import TodoScreen from '@screens/TodoScreen.tsx';
+import MemoScreen from '@screens/MemoScreen.tsx';
+import CalendarScreen from '@screens/CalendarScreen.tsx';
+import MyScreen from '@screens/MyScreen.tsx';
+import HomeIcon from '@components/icons/HomeIcon.tsx';
+import TodoIcon from '@components/icons/TodoIcon.tsx';
+import MemoIcon from '@components/icons/MemoIcon.tsx';
+import MyIcon from '@components/icons/MyIcon.tsx';
+import CalendarIcon from '@components/icons/CalendarIcon.tsx';
+import {IconLabel, IconView} from '@styles/tabs.styled.ts';
 
 interface IconProps {
   focused: boolean;

@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* yestudyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* yestudyTests.m */; };
-		0827E8A4F40EE9014C47CD35 /* libPods-yestudy-yestudyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB51352FA6F43575EF3B6AF /* libPods-yestudy-yestudyTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1F4B05782CB455C50075300D /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B05772CB455C50075300D /* main.jsbundle */; };
+		3E966C52C950F5603FF98771 /* libPods-yestudy-yestudyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C006D52C1981253F3C4E150 /* libPods-yestudy-yestudyTests.a */; };
 		638E2F5E837A974010785208 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F9E02BADFD71CB63074C2F0A /* PrivacyInfo.xcprivacy */; };
+		7A44DCE189789BAD1275F3F0 /* libPods-yestudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0314147ECF29CA4D5803A15B /* libPods-yestudy.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C54DA870C9BA5E242DB1545F /* libPods-yestudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB6EE4486AB0A034848C282 /* libPods-yestudy.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,7 @@
 		00E356EE1AD99517003FC87E /* yestudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yestudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* yestudyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yestudyTests.m; sourceTree = "<group>"; };
-		016DF8D8AB3CE63FFBEBDAAA /* Pods-yestudy-yestudyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy-yestudyTests.release.xcconfig"; path = "Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests.release.xcconfig"; sourceTree = "<group>"; };
+		0314147ECF29CA4D5803A15B /* libPods-yestudy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yestudy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* yestudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yestudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = yestudy/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = yestudy/AppDelegate.mm; sourceTree = "<group>"; };
@@ -40,13 +40,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = yestudy/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = yestudy/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = yestudy/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		1B6588C49990EE38600DD0FF /* Pods-yestudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy.debug.xcconfig"; path = "Target Support Files/Pods-yestudy/Pods-yestudy.debug.xcconfig"; sourceTree = "<group>"; };
-		1E4E38AB9CC68C18C20B186B /* Pods-yestudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy.release.xcconfig"; path = "Target Support Files/Pods-yestudy/Pods-yestudy.release.xcconfig"; sourceTree = "<group>"; };
 		1F4B05772CB455C50075300D /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		356D80D274571DE7A4F6802E /* Pods-yestudy-yestudyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy-yestudyTests.debug.xcconfig"; path = "Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DB51352FA6F43575EF3B6AF /* libPods-yestudy-yestudyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yestudy-yestudyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6DBA777600E502F25FFE84 /* Pods-yestudy-yestudyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy-yestudyTests.debug.xcconfig"; path = "Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		591513FDAC642C7E3884AF13 /* Pods-yestudy-yestudyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy-yestudyTests.release.xcconfig"; path = "Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests.release.xcconfig"; sourceTree = "<group>"; };
+		6C006D52C1981253F3C4E150 /* libPods-yestudy-yestudyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yestudy-yestudyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = yestudy/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AFB6EE4486AB0A034848C282 /* libPods-yestudy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yestudy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		893D79506BBD67631546B3AF /* Pods-yestudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy.debug.xcconfig"; path = "Target Support Files/Pods-yestudy/Pods-yestudy.debug.xcconfig"; sourceTree = "<group>"; };
+		BA0F7DC9D9C844BCE1531721 /* Pods-yestudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yestudy.release.xcconfig"; path = "Target Support Files/Pods-yestudy/Pods-yestudy.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F9E02BADFD71CB63074C2F0A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = yestudy/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0827E8A4F40EE9014C47CD35 /* libPods-yestudy-yestudyTests.a in Frameworks */,
+				3E966C52C950F5603FF98771 /* libPods-yestudy-yestudyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54DA870C9BA5E242DB1545F /* libPods-yestudy.a in Frameworks */,
+				7A44DCE189789BAD1275F3F0 /* libPods-yestudy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				AFB6EE4486AB0A034848C282 /* libPods-yestudy.a */,
-				5DB51352FA6F43575EF3B6AF /* libPods-yestudy-yestudyTests.a */,
+				0314147ECF29CA4D5803A15B /* libPods-yestudy.a */,
+				6C006D52C1981253F3C4E150 /* libPods-yestudy-yestudyTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,10 +148,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1B6588C49990EE38600DD0FF /* Pods-yestudy.debug.xcconfig */,
-				1E4E38AB9CC68C18C20B186B /* Pods-yestudy.release.xcconfig */,
-				356D80D274571DE7A4F6802E /* Pods-yestudy-yestudyTests.debug.xcconfig */,
-				016DF8D8AB3CE63FFBEBDAAA /* Pods-yestudy-yestudyTests.release.xcconfig */,
+				893D79506BBD67631546B3AF /* Pods-yestudy.debug.xcconfig */,
+				BA0F7DC9D9C844BCE1531721 /* Pods-yestudy.release.xcconfig */,
+				3E6DBA777600E502F25FFE84 /* Pods-yestudy-yestudyTests.debug.xcconfig */,
+				591513FDAC642C7E3884AF13 /* Pods-yestudy-yestudyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -163,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "yestudyTests" */;
 			buildPhases = (
-				81280A8E3376E0F738A1FC68 /* [CP] Check Pods Manifest.lock */,
+				C05EC8F3ED41353BE3413ED0 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				BFFD129375088651296B93D4 /* [CP] Embed Pods Frameworks */,
-				07380B961BC1822E07BE3EB7 /* [CP] Copy Pods Resources */,
+				DBC696A1BFFBCC25B9AC651E /* [CP] Embed Pods Frameworks */,
+				495FC7630C14BBA51C4620D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,13 +184,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "yestudy" */;
 			buildPhases = (
-				A4DAA32F0C815B46244ACFC3 /* [CP] Check Pods Manifest.lock */,
+				3CF443F06255DECE9F82EDF0 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				7EB06B1D5CDFDCB1F1E80CAD /* [CP] Embed Pods Frameworks */,
-				789CD7414B1C7696D1C4A8EE /* [CP] Copy Pods Resources */,
+				5A7CC5293E83266982836028 /* [CP] Embed Pods Frameworks */,
+				911953B0FDF137C32A8FF126 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,80 +275,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		07380B961BC1822E07BE3EB7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		789CD7414B1C7696D1C4A8EE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7EB06B1D5CDFDCB1F1E80CAD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81280A8E3376E0F738A1FC68 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-yestudy-yestudyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A4DAA32F0C815B46244ACFC3 /* [CP] Check Pods Manifest.lock */ = {
+		3CF443F06255DECE9F82EDF0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -370,7 +297,80 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BFFD129375088651296B93D4 /* [CP] Embed Pods Frameworks */ = {
+		495FC7630C14BBA51C4620D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yestudy-yestudyTests/Pods-yestudy-yestudyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A7CC5293E83266982836028 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911953B0FDF137C32A8FF126 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yestudy/Pods-yestudy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C05EC8F3ED41353BE3413ED0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-yestudy-yestudyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBC696A1BFFBCC25B9AC651E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -420,7 +420,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 356D80D274571DE7A4F6802E /* Pods-yestudy-yestudyTests.debug.xcconfig */;
+			baseConfigurationReference = 3E6DBA777600E502F25FFE84 /* Pods-yestudy-yestudyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -447,7 +447,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 016DF8D8AB3CE63FFBEBDAAA /* Pods-yestudy-yestudyTests.release.xcconfig */;
+			baseConfigurationReference = 591513FDAC642C7E3884AF13 /* Pods-yestudy-yestudyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -471,11 +471,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B6588C49990EE38600DD0FF /* Pods-yestudy.debug.xcconfig */;
+			baseConfigurationReference = 893D79506BBD67631546B3AF /* Pods-yestudy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3J882XPA5T;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = yestudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,11 +499,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4E38AB9CC68C18C20B186B /* Pods-yestudy.release.xcconfig */;
+			baseConfigurationReference = BA0F7DC9D9C844BCE1531721 /* Pods-yestudy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3J882XPA5T;
 				INFOPLIST_FILE = yestudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

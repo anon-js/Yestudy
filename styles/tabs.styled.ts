@@ -7,8 +7,8 @@ export const IconView = styled.View`
 
 export const IconLabel = styled.Text<{focused: boolean}>`
   font-size: 12px;
-  ${props => `
-    color: ${props.focused ? '#469ddd' : '#aabdc8'};
-    font-weight: ${props.focused ? 'bold' : 'normal'};
+  ${({focused}) => `
+    color: ${focused ? '#469ddd' : '#aabdc8'};
+    font-weight: ${focused ? 'bold' : 'normal'};
   `}
 `;
