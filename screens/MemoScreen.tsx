@@ -1,4 +1,4 @@
-import {HeaderText, ListView, ListWrapper, RenderItem, SafeAreaView} from '@styles/index.styled.ts';
+import {HeaderText, ListView, ListWrapper, RenderItem, SafeAreaView} from '@styles/screen.styled.ts';
 import {useMemo} from 'react';
 import {ListRenderItem} from 'react-native';
 import MemoItem from '@components/MemoItem.tsx';

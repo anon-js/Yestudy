@@ -1,4 +1,4 @@
-import {HeaderText, MainView, SafeAreaView} from '@styles/index.styled.ts';
+import {HeaderText, MainView, SafeAreaView} from '@styles/screen.styled.ts';
 
 const CalendarScreen = () => {
   return (

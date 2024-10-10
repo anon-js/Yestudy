@@ -1,15 +1,5 @@
 import styled from 'styled-components/native';
 
-export const ItemView = styled.View`
-  flex-direction: row;
-  padding: 24px;
-  background-color: #fff;
-  border-radius: 12px;
-  border: 1px solid #eaeaea;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const TitleWrap = styled.View`
   flex-direction: column;
   gap: 2px;
@@ -18,12 +8,12 @@ export const TitleWrap = styled.View`
 export const Title = styled.Text`
   font-size: 20px;
   font-weight: 500;
-  color: #444;
+  color: ${({ theme }) => theme.color.gray800};
 `;
 
 export const DateTitle = styled.Text`
   font-size: 12px;
-  color: #777;
+  color: ${({ theme }) => theme.color.gray600};
 `;
 
 export const Checkbox = styled.TouchableOpacity`
@@ -32,5 +22,5 @@ export const Checkbox = styled.TouchableOpacity`
   border-radius: 28px;
   align-items: center;
   justify-content: center;
-  background-color: #eaeaea;
+  background-color: ${({ theme }) => theme.color.checkbox};
 `;

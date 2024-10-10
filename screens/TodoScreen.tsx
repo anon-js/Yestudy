@@ -1,4 +1,4 @@
-import {HeaderText, ListView, ListWrapper, RenderItem, SafeAreaView} from '@styles/index.styled.ts';
+import {HeaderText, ListView, ListWrapper, RenderItem, SafeAreaView} from '@styles/screen.styled.ts';
 import React, {useMemo} from 'react';
 import dayjs from 'dayjs';
 import TodoItem from '@components/TodoItem.tsx';

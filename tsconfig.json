@@ -9,6 +9,7 @@
       "@screens/*": ["./screens/*"],
       "@styles/*": ["./styles/*"],
       "@navigation/*": ["./navigation/*"],
+      "@theme/*": ["./theme/*"],
     },
   },
 }

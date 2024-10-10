@@ -11,6 +11,7 @@ import MemoIcon from '@components/icons/MemoIcon.tsx';
 import MyIcon from '@components/icons/MyIcon.tsx';
 import CalendarIcon from '@components/icons/CalendarIcon.tsx';
 import {IconLabel, IconView} from '@styles/tabs.styled.ts';
+import { useTheme } from 'styled-components/native';
 
 interface IconProps {
   focused: boolean;
@@ -26,6 +27,8 @@ interface LabelProps {
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
+  const theme = useTheme();
+
   const renderIcon = ({focused, size, label}: IconProps) => {
     switch (label) {
       case '홈':
@@ -33,7 +36,7 @@ const Tabs = () => {
           <IconView>
             <HomeIcon
               size={size}
-              color={focused ? '#469ddd' : '#aabdc8'}
+              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -42,7 +45,7 @@ const Tabs = () => {
           <IconView>
             <TodoIcon
               size={size}
-              color={focused ? '#469ddd' : '#aabdc8'}
+              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
             </IconView>
           );
@@ -51,7 +54,7 @@ const Tabs = () => {
           <IconView>
             <MemoIcon
               size={size}
-              color={focused ? '#469ddd' : '#aabdc8'}
+              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -60,7 +63,7 @@ const Tabs = () => {
           <IconView>
             <CalendarIcon
               size={size}
-              color={focused ? '#469ddd' : '#aabdc8'}
+              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -69,7 +72,7 @@ const Tabs = () => {
           <IconView>
             <MyIcon
               size={size}
-              color={focused ? '#469ddd' : '#aabdc8'}
+              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -90,12 +93,13 @@ const Tabs = () => {
         headerShown: false,
         tabBarStyle: {
           position: 'absolute',
-          elevation: 0,
-          backgroundColor: '#fff',
+          bottom: 0,
+          height: 90,
+          padding: 12,
+          backgroundColor: theme.color.whiteBackground,
+          borderTopWidth: 0,
           borderTopLeftRadius: 32,
           borderTopRightRadius: 32,
-          padding: 12,
-          height: 100,
         },
         tabBarIcon: ({focused, size}) => renderIcon({focused, size, label: route.name}),
         tabBarLabel: ({focused}) => renderLabel({focused, label: route.name}),

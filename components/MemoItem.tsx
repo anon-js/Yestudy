@@ -1,4 +1,5 @@
-import {DateTitle, ItemView, Content, Title} from '@styles/MemoItem.styled.ts';
+import {DateTitle, Content, Title} from '@styles/MemoItem.styled.ts';
+import {ColumnItemView} from '@styles/component.styled.ts';
 
 interface Props {
   title: string;
@@ -8,11 +9,11 @@ interface Props {
 
 const MemoItem = ({title, content, lastDate}: Props) => {
   return (
-    <ItemView>
+    <ColumnItemView>
       <Title>{title}</Title>
       <Content>{content}</Content>
       <DateTitle>{lastDate}</DateTitle>
-    </ItemView>
+    </ColumnItemView>
   );
 };
 

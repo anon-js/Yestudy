@@ -1,4 +1,5 @@
-import {ItemView, TitleWrap, Title, DateTitle, Checkbox} from '@styles/TodoItem.styled.ts';
+import {RowItemView} from '@styles/component.styled.ts';
+import {TitleWrap, Title, DateTitle, Checkbox} from '@styles/TodoItem.styled.ts';
 
 export interface ItemProps {
   title: string;
@@ -7,13 +8,13 @@ export interface ItemProps {
 
 const TodoItem = ({title, endDate}: ItemProps) => {
   return (
-    <ItemView>
+    <RowItemView>
       <TitleWrap>
         <Title>{title}</Title>
         <DateTitle>~ {endDate}</DateTitle>
       </TitleWrap>
       <Checkbox />
-    </ItemView>
+    </RowItemView>
   );
 };
 
