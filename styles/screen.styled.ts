@@ -4,22 +4,25 @@ import {FlatList} from 'react-native';
 
 export const SafeAreaView = styled(RNSafeAreaView)`
   flex: 1;
-  padding-bottom: 45px;
   background-color: ${({ theme }) => theme.color.background};
 `;
 
 export const MainView = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.color.background};
-  padding: 20px 24px;
-  gap: 12px;
+  padding: 16px;
+  gap: 16px;
+`;
+
+export const ColumnView = styled.View<{gap?: number}>`
+  gap: ${({gap}) => gap || 8}px;
 `;
 
 export const ListWrapper = styled.View`
   flex: 1;
   padding: 16px;
   background-color: ${({ theme }) => theme.color.background};
-  gap: 32px;
+  gap: 16px;
 `;
 
 export const ListView = (styled.FlatList`
@@ -29,11 +32,4 @@ export const ListView = (styled.FlatList`
 
 export const RenderItem = styled.View<{isLastItem: boolean}>`
   margin-bottom: ${({isLastItem}) => (isLastItem ? 24 : 12)}px;
-`;
-
-export const HeaderText = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.color.gray900};
-  line-height: 130%;
 `;

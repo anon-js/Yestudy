@@ -35,8 +35,8 @@ const Tabs = () => {
         return (
           <IconView>
             <HomeIcon
+              focused={focused}
               size={size}
-              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -44,17 +44,17 @@ const Tabs = () => {
         return  (
           <IconView>
             <TodoIcon
+              focused={focused}
               size={size}
-              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
-            </IconView>
-          );
+          </IconView>
+        );
       case '메모':
         return  (
           <IconView>
             <MemoIcon
+              focused={focused}
               size={size}
-              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -62,8 +62,8 @@ const Tabs = () => {
         return (
           <IconView>
             <CalendarIcon
+              focused={focused}
               size={size}
-              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -71,8 +71,8 @@ const Tabs = () => {
         return (
           <IconView>
             <MyIcon
+              focused={focused}
               size={size}
-              color={focused ? theme.color.primary : theme.color.disabledIcon}
             />
           </IconView>
         );
@@ -96,7 +96,7 @@ const Tabs = () => {
           bottom: 0,
           height: 90,
           padding: 12,
-          backgroundColor: theme.color.whiteBackground,
+          backgroundColor: theme.color.white,
           borderTopWidth: 0,
           borderTopLeftRadius: 32,
           borderTopRightRadius: 32,

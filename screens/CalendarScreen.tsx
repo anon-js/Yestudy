@@ -1,12 +1,11 @@
-import {HeaderText, MainView, SafeAreaView} from '@styles/screen.styled.ts';
+import {MainView, SafeAreaView} from '@styles/screen.styled.ts';
+import {Headline5} from '@styles/text.styled.ts';
 
 const CalendarScreen = () => {
   return (
     <SafeAreaView>
       <MainView>
-        <HeaderText>
-          일정
-        </HeaderText>
+        <Headline5>일정</Headline5>
       </MainView>
     </SafeAreaView>
   );

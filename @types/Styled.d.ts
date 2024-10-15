@@ -5,7 +5,7 @@ declare module 'styled-components/native' {
     color: {
       primary: string;
       primaryVariant: string;
-      whiteBackground: string;
+      white: string;
       background: string;
       disabledIcon: string;
       checkbox: string;
@@ -18,6 +18,18 @@ declare module 'styled-components/native' {
       gray700: string;
       gray800: string;
       gray900: string;
+    };
+    fontSize: {
+      xxs: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
+      huge: string;
+      xhuge: string;
+      xxhuge: string;
     };
   }
 }

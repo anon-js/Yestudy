@@ -4,7 +4,7 @@ const dark: DefaultTheme = {
   color: {
     primary: '#009688',
     primaryVariant: '#005f56',
-    whiteBackground: '#2c2c2e',
+    white: '#2c2c2e',
     background: '#121212',
     disabledIcon: '#6e7d83',
     checkbox: '#515151',
@@ -18,6 +18,18 @@ const dark: DefaultTheme = {
     gray800: '#eaeaea',
     gray900: '#f7f7f9',
   },
+  fontSize: {
+    xxs: '10px',
+    xs: '12px',
+    sm: '14px',
+    md: '16px',
+    lg: '20px',
+    xl: '24px',
+    xxl: '34px',
+    huge: '48px',
+    xhuge: '60px',
+    xxhuge: '96px',
+  },
 };
 
 const light: DefaultTheme = {
@@ -25,7 +37,7 @@ const light: DefaultTheme = {
   color: {
     primary: '#00bfa6',
     primaryVariant: '#00796b',
-    whiteBackground: '#ffffff',
+    white: '#ffffff',
     background: '#f0f0f3',
     disabledIcon: '#b0c4cc',
     checkbox: '#eaeaea',
